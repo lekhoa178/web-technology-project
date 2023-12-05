@@ -8,7 +8,7 @@ import com.cnw.shoppingweb.dao.OrderDAO;
 import com.cnw.shoppingweb.service.impl.CartServiceImpl;
 import com.cnw.shoppingweb.service.impl.OrderServiceImpl;
 import com.cnw.shoppingweb.service.impl.ProductServiceImpl;
-import com.cnw.shoppingweb.utility.DBUtil;
+import com.cnw.shoppingweb.utility.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -73,7 +73,7 @@ public class OrderDAOImpl implements OrderDAO {
     public boolean addOrder(OrderBean order) {
         boolean flag = false;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -103,7 +103,7 @@ public class OrderDAOImpl implements OrderDAO {
     public boolean addTransaction(TransactionBean transaction) {
         boolean flag = false;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -132,7 +132,7 @@ public class OrderDAOImpl implements OrderDAO {
     public int countSoldItem(String prodId) {
         int count = 0;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -153,9 +153,9 @@ public class OrderDAOImpl implements OrderDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(rs);
 
         return count;
     }
@@ -164,7 +164,7 @@ public class OrderDAOImpl implements OrderDAO {
     public List<OrderBean> getAllOrders() {
         List<OrderBean> orderList = new ArrayList<OrderBean>();
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -196,7 +196,7 @@ public class OrderDAOImpl implements OrderDAO {
     public List<OrderBean> getOrdersByUserId(String emailId) {
         List<OrderBean> orderList = new ArrayList<OrderBean>();
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -229,7 +229,7 @@ public class OrderDAOImpl implements OrderDAO {
     public List<OrderDetails> getAllOrderDetails(String userEmailId) {
         List<OrderDetails> orderList = new ArrayList<OrderDetails>();
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -268,7 +268,7 @@ public class OrderDAOImpl implements OrderDAO {
     public String shipNow(String orderId, String prodId) {
         String status = "FAILURE";
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -289,8 +289,8 @@ public class OrderDAOImpl implements OrderDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
 
         return status;
     }

@@ -1,10 +1,5 @@
 package com.cnw.shoppingweb.service.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.cnw.shoppingweb.beans.OrderBean;
@@ -13,7 +8,6 @@ import com.cnw.shoppingweb.beans.TransactionBean;
 import com.cnw.shoppingweb.dao.OrderDAO;
 import com.cnw.shoppingweb.dao.impl.OrderDAOImpl;
 import com.cnw.shoppingweb.service.OrderService;
-import com.cnw.shoppingweb.utility.DBUtil;
 
 public class OrderServiceImpl implements OrderService {
 	private final OrderDAO orderDAO = new OrderDAOImpl();

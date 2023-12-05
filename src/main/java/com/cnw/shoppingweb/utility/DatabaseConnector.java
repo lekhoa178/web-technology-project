@@ -5,13 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
-public class DBUtil {
+public class DatabaseConnector {
 	private static Connection conn = null;
 
 
-	public DBUtil() {
+	public DatabaseConnector() {
 	}
 
 	public static Connection provideConnection() {

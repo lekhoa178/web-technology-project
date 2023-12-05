@@ -15,6 +15,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 <body style="background-color: #E6F9E6;">
 
@@ -67,7 +68,7 @@
 			%>
 			<div class="col-sm-4" style='height: 350px;'>
 				<div class="thumbnail">
-					<img src="./ShowImage?pid=<%=product.getProdId()%>" alt="Product"
+					<img src="ShowImage?pid=<%=product.getProdId()%>" alt="Product"
 						style="height: 150px; max-width: 180px">
 					<p class="productname"><%=product.getProdName()%>
 					</p>
@@ -86,12 +87,14 @@
 						if (cartQty == 0) {
 						%>
 						<button type="submit"
+								style="border-radius: 15px"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
-							class="btn btn-success">Add to Cart</button>
+							class="btn--add btn btn-success">Add to Cart</button>
 						&nbsp;&nbsp;&nbsp;
 						<button type="submit"
+								style="border-radius: 15px; color: #ff6b4a"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
-							class="btn btn-primary">Buy Now</button>
+							class="btn--buy btn btn-primary">Buy Now</button>
 						<%
 						} else {
 						%>
