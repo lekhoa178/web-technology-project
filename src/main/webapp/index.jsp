@@ -29,7 +29,7 @@
 
 	boolean isValidUser = true;
 
-	if (userType == null || userName == null || password == null || !userType.equals("customer")) {
+	if (userType == null || userName == null || password == null || !userType.equals("USER")) {
 
 		isValidUser = false;
 	}

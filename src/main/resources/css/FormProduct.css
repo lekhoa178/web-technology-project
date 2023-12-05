@@ -1,8 +1,8 @@
 .form-container{
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px !important;
 }
 .no-padding-horizontal{
     padding-left: 0px !important;

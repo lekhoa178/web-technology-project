@@ -20,7 +20,7 @@ pageEncoding="UTF-8"%>
     (String)session.getAttribute("usertype"); String userName =
     (String)session.getAttribute("username"); String password =
     (String)session.getAttribute("password"); if (userType == null ||
-    !userType.equals("admin")) {
+    !userType.equals("ADMIN")) {
     response.sendRedirect("login.jsp?message=AccessDenied, Login as admin!!"); }
     else if (userName == null || password == null) {
     response.sendRedirect("login.jsp?message=Session Expired, Login Again!!"); }
@@ -134,6 +134,6 @@ pageEncoding="UTF-8"%>
       </div>
     </div>
 
-    <%@ include file="footer.html"%>
+    <%@ include file="footer.jsp"%>
   </body>
 </html>
