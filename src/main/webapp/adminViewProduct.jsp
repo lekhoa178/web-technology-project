@@ -61,7 +61,8 @@
 	<jsp:include page="header.jsp" />
 
 	<div class="text-center"
-		style="color: black; font-size: 14px; font-weight: bold;"><%=message%></div>
+		style="color: black; font-size: 16px; font-weight: bold; margin-bottom: 15px"><%=message%></div>
+
 	<!-- Start of Product Items List -->
 	<div class="container" style="background-color: #E6F9E6;">
 		<div class="row text-center">
@@ -70,27 +71,47 @@
 			for (ProductBean product : products) {
 			%>
 			<div class="col-sm-4" style='height: 350px;'>
-				<div class="thumbnail">
+				<div class="thumbnail" style="height: 340px;box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 5px;">
 					<img src="./ShowImage?pid=<%=product.getProdId()%>" alt="Product"
 						style="height: 150px; max-width: 180px;">
-					<p class="productname"><%=product.getProdName()%>
+					<%
+						String productName = product.getProdName();
+						if(productName.length() > 20){
+							productName = productName.substring(0, 20) + " ...";
+						}
+					%>
+					<p class="productname">
+						<%=productName%>
 						(
 						<%=product.getProdId()%>
 						)
 					</p>
-					<p class="productinfo"><%=product.getProdInfo()%></p>
+					<%
+						String description = product.getProdInfo();
+						boolean lengthOver = description.length() > 100;
+						if(lengthOver){
+							description = description.substring(0, Math.min(description.length(), 100)) + " ...";
+						}
+
+					%>
+						<p class="productinfo"><%=description%></p>
 					<p class="price">
 						VNĐ
 						<%=product.getProdPrice()%>
 					</p>
-					<form method="post">
+					<form method="post" >
 						<button type="submit"
 							formaction="./RemoveProductSrv?prodid=<%=product.getProdId()%>"
-							class="btn btn-danger">Xóa sản phẩm</button>
+							class="btn btn-danger"
+							style="
+							background-color: #ee4d2d;
+							border-color: #ee4d2d;
+							box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">Xóa sản phẩm</button>
 						&nbsp;&nbsp;&nbsp;
+						
 						<button type="submit"
 							formaction="updateProduct.jsp?prodid=<%=product.getProdId()%>"
-							class="btn btn-primary">Cập nhật sản phẩm</button>
+							class="btn btn-primary" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;background-color: #33bfd3;border-color: #33bfd3">Cập nhật sản phẩm</button>
 					</form>
 				</div>
 			</div>

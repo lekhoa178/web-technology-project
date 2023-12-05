@@ -9,6 +9,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/changes.css">
+	<link rel="stylesheet" href="css/FormProduct.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -40,8 +41,8 @@
 		<div class="row"
 			style="margin-top: 5px; margin-left: 2px; margin-right: 2px;">
 			<form action="updateProduct.jsp" method="post"
-				class="col-md-4 col-md-offset-4"
-				style="border: 2px solid black; border-radius: 10px; background-color: #FFE5CC; padding: 10px;">
+				class="col-md-4 col-md-offset-4 form-container"
+				>
 				<div style="font-weight: bold;" class="text-center">
 					<h3 style="color: green;">Form Cập Nhật Sản Phẩm</h3>
 					<%
