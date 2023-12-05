@@ -13,6 +13,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/changes.css">
+	<link rel="stylesheet" href="css/FormProduct.css">
 </head>
 <body style="background-color: #E6F9E6;">
 	<%
@@ -43,8 +44,8 @@
 		<div class="row"
 			style="margin-top: 5px; margin-left: 2px; margin-right: 2px;">
 			<form action="./AddProductSrv" method="post"
-				enctype="multipart/form-data" class="col-md-6 col-md-offset-3"
-				style="border: 2px solid black; border-radius: 10px; background-color: #FFE5CC; padding: 10px;">
+				enctype="multipart/form-data" class="col-md-6 col-md-offset-3 form-container"
+				>
 				<div style="font-weight: bold;" class="text-center">
 					<h2 style="color: green;">Product Addition Form</h2>
 					<%
@@ -94,7 +95,7 @@
 					</div>
 				</div>
 				<div>
-					<div class="col-md-12 form-group">
+					<div class="col-md-12 form-group no-padding-horizontal" >
 						<label for="last_name">Product Image</label> <input type="file"
 							placeholder="Select Image" name="image" class="form-control"
 							id="last_name" required>

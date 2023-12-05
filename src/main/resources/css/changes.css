@@ -9,6 +9,14 @@ body {
 	font-size: 14px !important;
 	letter-spacing: 4px;
 }
+.nav-bar-custom{
+	position: fixed;
+	margin-bottom: 0;
+	border: 0;
+	background-color: #ee4d2d !important;
+	font-size: 14px !important;
+	letter-spacing: 4px;
+}
 
 /* Add a gray color to all navbar links */
 .navbar li a, .navbar .navbar-brand {
@@ -180,4 +188,7 @@ i.fa::before {
 
 #myNavbar1 a {
 	color: white;
+}
+.btn-black-hover:hover {
+	color: #d2d0d0 !important;
 }

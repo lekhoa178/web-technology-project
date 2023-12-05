@@ -67,16 +67,25 @@
 				int cartQty = new CartServiceImpl().getCartItemCount(userName, product.getProdId());
 			%>
 			<div class="col-sm-4" style='height: 350px;'>
-				<div class="thumbnail">
+				<div class="thumbnail" style="height: 340px;box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 5px;">
 					<img src="ShowImage?pid=<%=product.getProdId()%>" alt="Product"
 						style="height: 150px; max-width: 180px">
-					<p class="productname"><%=product.getProdName()%>
+					<%
+						String productName = product.getProdName();
+						if(productName.length() > 20){
+							productName = productName.substring(0, 20) + " ...";
+						}
+					%>
+					<p class="productname"><%=productName%>
 					</p>
 					<%
 					String description = product.getProdInfo();
-					description = description.substring(0, Math.min(description.length(), 100));
+					if(description.length() > 100){
+					description = description.substring(0, Math.min(description.length(), 100)) + " ...";
+					}
+
 					%>
-					<p class="productinfo"><%=description%>..
+					<p class="productinfo"><%=description%>
 					</p>
 					<p class="price">
 						Vnd
@@ -87,23 +96,34 @@
 						if (cartQty == 0) {
 						%>
 						<button type="submit"
-								style="border-radius: 15px"
+								style="border-radius: 10px;
+								box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+								background-color: #ee4d2d;
+								border-color: #ef4223"
+
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
-							class="btn--add btn btn-success">Add to Cart</button>
+							class="btn--add btn ">Add to Cart</button>
 						&nbsp;&nbsp;&nbsp;
 						<button type="submit"
-								style="border-radius: 15px; color: #ff6b4a"
+								style="border-radius: 10px;
+								/*border-color: #004a9f;*/
+								/*background-color: #053bad;*/
+								box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+								:hover {
+								color: #d0d2d5 !important;
+								}"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
-							class="btn--buy btn btn-primary">Buy Now</button>
+							class="btn--buy btn btn-black-hover" >Buy Now</button>
 						<%
 						} else {
 						%>
 						<button type="submit"
+								style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;background-color: #e77b26;border-color: #d36b33"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=0"
 							class="btn btn-danger">Remove From Cart</button>
 						&nbsp;&nbsp;&nbsp;
 						<button type="submit" formaction="cartDetails.jsp"
-							class="btn btn-success">Checkout</button>
+							class="btn btn-success" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;background-color: #33bfd3;border-color: #33bfd3">Checkout</button>
 						<%
 						}
 						%>

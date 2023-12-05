@@ -1,0 +1,10 @@
+.form-container{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.no-padding-horizontal{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}

@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import com.cnw.shoppingweb.service.impl.ProductServiceImpl;
 
-@WebServlet("/ShowImage")
+ @WebServlet("/ShowImage")
 public class ShowImageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
