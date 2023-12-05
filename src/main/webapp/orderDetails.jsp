@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page
 	import="com.cnw.shoppingweb.service.impl.*, com.cnw.shoppingweb.service.*,com.cnw.shoppingweb.beans.*,java.util.*,jakarta.servlet.ServletOutputStream,java.io.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Order Details</title>
+<title>Chi Tiết Đơn Hàng</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -16,7 +16,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/changes.css">
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: #f5f5f5;">
 
 	<%
 	/* Checking the user credentials */
@@ -40,22 +40,21 @@
 	<!-- <script>document.getElementById('mycart').innerHTML='<i data-count="20" class="fa fa-shopping-cart fa-3x icon-white badge" style="background-color:#333;margin:0px;padding:0px; margin-top:5px;"></i>'</script>
  -->
 	<div class="text-center"
-		style="color: green; font-size: 24px; font-weight: bold;">Order
-		Details</div>
+		style="color: #ee4d2d; font-size: 24px; font-weight: bold;">Chi tiết đơn hàng</div>
 	<!-- Start of Product Items List -->
-	<div class="container">
+	<div class="container" style="margin: 0; width: 100%">
 		<div class="table-responsive ">
 			<table class="table table-hover table-sm">
 				<thead
-					style="background-color: black; color: white; font-size: 14px; font-weight: bold;">
+					style="background-color: #fff; color: black; font-size: 14px; font-weight: bold; border-bottom: 2px solid #CCC">
 					<tr>
-						<th>Picture</th>
-						<th>ProductName</th>
-						<th>OrderId</th>
-						<th>Quantity</th>
-						<th>Price</th>
-						<th>Time</th>
-						<th>Status</th>
+						<th>Hình ảnh</th>
+						<th>Tên sản phẩm</th>
+						<th>Mã đơn hàng</th>
+						<th>Số lượng</th>
+						<th>Giá tiền</th>
+						<th>Thời gian</th>
+						<th>Trạng thái</th>
 					</tr>
 				</thead>
 				<tbody
@@ -72,7 +71,7 @@
 						<td><%=order.getQty()%></td>
 						<td><%=order.getAmount()%></td>
 						<td><%=order.getTime()%></td>
-						<td class="text-success"><%=order.getShipped() == 0 ? "ORDER_PLACED" : "ORDER_SHIPPED"%></td>
+						<td class="text-success"><%=order.getShipped() == 0 ? "ĐANG_XỬ_LÍ" : "ĐÃ_ĐƯỢC_GIAO"%></td>
 					</tr>
 
 					<%

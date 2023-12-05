@@ -5,9 +5,8 @@ body {
 .navbar {
 	margin-bottom: 0;
 	border: 0;
-	background-color: #ee4d2d;
+	background-color: #ee4d2d !important;
 	font-size: 14px !important;
-	letter-spacing: 4px;
 }
 
 /* Add a gray color to all navbar links */
@@ -68,7 +67,7 @@ button {
 /*}*/
 
 .bg-1 {
-	background: #2d2d30;
+	background: #ffffff;
 	color: #bdbdbd;
 }
 

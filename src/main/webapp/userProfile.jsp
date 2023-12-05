@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page
 	import="com.cnw.shoppingweb.service.impl.*, com.cnw.shoppingweb.service.*,com.cnw.shoppingweb.beans.*,java.util.*,jakarta.servlet.ServletOutputStream,java.io.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Profile Details</title>
+<title>Hồ Sơ</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -20,14 +20,15 @@
 <style>
 
 	.text-title {
-		font-weight: bold;
 		padding: 0;
-		font-size: 16px;
+		font-size: 15px;
+		color: #000000;
 	}
 
 	.text-body {
 		font-weight: normal;
 		font-size: 15px;
+		color: black;
 	}
 </style>
 </head>
@@ -56,93 +57,89 @@
 
 	<div class="container bg-secondary">
 		<div class="row">
-			<div class="col">
-				<nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-					<ol class="breadcrumb mb-0">
-						<li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
-						<li class="breadcrumb-item"><a href="profile.jsp">Profile</a></li>
+			<div class="col" style="border-bottom: 2px solid #ee4d2d; margin-bottom: 40px; background-color: white">
+				<nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="background-color: white">
+					<ol class="breadcrumb mb-0" style="background-color: white">
+						<li class="breadcrumb-item"><a href="index.jsp">Trang chủ</a></li>
+						<li class="breadcrumb-item"><a href="profile.jsp">Hồ sơ</a></li>
 					</ol>
 				</nav>
 			</div>
 		</div>
 
 		<div class="row">
+
+			<div class="col-lg-8">
+				<div class="card mb-4">
+					<div class="card-body" style="display: flex; flex-direction: column; gap: 25px">
+						<div class="row" style="display: flex; align-items: center">
+							<div class="col-sm-3">
+								<p class="mb-0 text-title">Họ tên đầy đủ</p>
+							</div>
+							<div class="col-sm-9" style="border-bottom: 2px solid #ccc">
+								<p class="text-body text-muted mb-0" style="color: black; font-weight: bold"><%=user.getName()%></p>
+							</div>
+						</div>
+						<div class="row" style="display: flex; align-items: center">
+							<div class="col-sm-3">
+								<p class="mb-0 text-title">Email</p>
+							</div>
+							<div class="col-sm-9" style="border-bottom: 2px solid #ccc">
+								<p class="text-body text-muted mb-0" style="color: black"><%=user.getEmail()%>
+								</p>
+							</div>
+						</div>
+						<div class="row" style="display: flex; align-items: center">
+							<div class="col-sm-3">
+								<p class="mb-0 text-title">Số điện thoại</p>
+							</div>
+							<div class="col-sm-9" style="border-bottom: 2px solid #ccc">
+								<p class="text-body text-muted mb-0" style="color: black"><%=user.getMobile()%>
+								</p>
+							</div>
+						</div>
+						<div class="row" style="display: flex; align-items: center">
+							<div class="col-sm-3">
+								<p class="mb-0 text-title">Địa chỉ</p>
+							</div>
+							<div class="col-sm-9" style="border-bottom: 2px solid #ccc">
+								<p class="text-body text-muted mb-0" style="color: black"><%=user.getAddress()%>
+								</p>
+							</div>
+						</div>
+						<div class="row" style="display: flex; align-items: center">
+							<div class="col-sm-3">
+								<p class="mb-0 text-title">Mã Pin</p>
+							</div>
+							<div class="col-sm-9" style="border-bottom: 2px solid #ccc">
+								<p class="text-body text-muted mb-0" style="color: black"><%=user.getPinCode()%>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="col-lg-4">
 				<div class="card mb-4">
 					<div class="card-body text-center">
-						<img src="images/profile.png" class="rounded-circle img-fluid"
-							style="width: 150px;">
+						<img src="images/people.png" class="rounded-circle img-fluid"
+							 style="width: 150px;">
 						<h5 class="my-3">
-							Hello
+							Xin chào người dùng
 							<%=user.getName()%>!!
 						</h5>
-						<!-- <p class="text-muted mb-1">Full Stack Developer</p>
-						<p class="text-muted mb-4">Bay Area, San Francisco, CA</p> -->
 					</div>
 				</div>
 				<div class="card mb-4 mb-lg-0">
 					<div class="card-body p-0">
 						<ul class="list-group list-group-flush rounded-3">
 
-							<li
-								class="text-center list-group-item d-flex justify-content-between align-items-center p-3">
-								<h1>Profile</h1>
+							<li style="background-color: #ffd2c5; border-width: 0; border-radius: 10px"
+								class="text-center list-group-item d-flex justify-contents-between align-items-center p-3">
+								<h1 style="font-weight: bold; color: #ee4d2d"><%=user.getName().toUpperCase()%></h1>
 							</li>
 						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-8">
-				<div class="card mb-4">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-sm-3">
-								<p class="mb-0 text-title">Full Name</p>
-							</div>
-							<div class="col-sm-9">
-								<p class="text-muted mb-0 text-body"><%=user.getName()%></p>
-							</div>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-sm-3">
-								<p class="mb-0 text-title">Email</p>
-							</div>
-							<div class="col-sm-9">
-								<p class="text-muted mb-0 text-body"><%=user.getEmail()%>
-								</p>
-							</div>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-sm-3">
-								<p class="mb-0 text-title">Phone</p>
-							</div>
-							<div class="col-sm-9">
-								<p class="text-muted mb-0 text-body"><%=user.getMobile()%>
-								</p>
-							</div>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-sm-3">
-								<p class="mb-0 text-title">Adrress</p>
-							</div>
-							<div class="col-sm-9">
-								<p class="text-muted mb-0 text-body"><%=user.getAddress()%>
-								</p>
-							</div>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-sm-3">
-								<p class="mb-0 text-title">PinCode</p>
-							</div>
-							<div class="col-sm-9">
-								<p class="text-muted mb-0 text-body"><%=user.getPinCode()%>
-								</p>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -156,4 +153,4 @@
 	<%@ include file="footer.html"%>
 
 </body>
-</html>
+</html>\

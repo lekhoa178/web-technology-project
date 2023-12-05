@@ -4,13 +4,13 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.cnw.shoppingweb.service.impl.ProductServiceImpl" %>
 <%@ page import="com.cnw.shoppingweb.beans.ProductBean" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-		 pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cart Details</title>
+<title>Giỏ Hàng</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -23,7 +23,15 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body style="background-color: #E6F9E6;">
+
+<style>
+	td, th {
+		text-align: start;
+		padding: 8px;
+	}
+</style>
+
+<body style="background-color: #f5f5f5;">
 
 	<%
 	/* Checking the user credentials */
@@ -66,24 +74,24 @@
 	<jsp:include page="header.jsp" />
 
 	<div class="text-center"
-		style="color: green; font-size: 24px; font-weight: bold;">Cart
-		Items</div>
+		style="color: black; font-size: 24px; font-weight: bold;">Giỏ Hàng</div>
 	<!-- <script>document.getElementById('mycart').innerHTML='<i data-count="20" class="fa fa-shopping-cart fa-3x icon-white badge" style="background-color:#333;margin:0px;padding:0px; margin-top:5px;"></i>'</script>
  -->
 	<!-- Start of Product Items List -->
-	<div class="container">
+	<div class="container" style="margin: 0; width: 100%">
 
 		<table class="table table-hover">
 			<thead
-				style="background-color: #186188; color: white; font-size: 16px; font-weight: bold;">
+				style="background-color: #fff; color: black; font-size: 16px; font-weight: bold;
+						border-bottom: 3px solid #DDD; margin-bottom: 20px">
 				<tr>
-					<th>Picture</th>
-					<th>Products</th>
-					<th>Price</th>
-					<th>Quantity</th>
-					<th>Add</th>
-					<th>Remove</th>
-					<th>Amount</th>
+					<th>Hình ảnh</th>
+					<th>Sản phẩm</th>
+					<th>Giá tiền</th>
+					<th>Số lượng</th>
+					<th>Thêm</th>
+					<th>Xóa</th>
+					<th>Số lượng</th>
 				</tr>
 			</thead>
 			<tbody
@@ -118,9 +126,12 @@
 					<td><%=product.getProdPrice()%></td>
 					<td><form method="post" action="./UpdateToCart">
 							<input type="number" name="pqty" value="<%=prodQuantity%>"
-								style="max-width: 70px;" min="0"> <input type="hidden"
-								name="pid" value="<%=product.getProdId()%>"> <input
-								type="submit" name="Update" value="Update"
+								style="max-width: 70px; border-width: 0; box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); border-radius: 15px; padding-left: 10px" min="0"> <input type="hidden"
+								name="pid" value="<%=product.getProdId()%>">
+							<input
+								style="border-radius: 15px; background-color: #ee4d2d; border-width: 0;
+									color: white; padding: 5px"
+								type="submit" name="Update" value="Cập nhật"
 								style="max-width: 80px;">
 						</form></td>
 					<td><a
@@ -137,23 +148,22 @@
 				}
 				%>
 
-				<tr style="background-color: grey; color: white;">
-					<td colspan="6" style="text-align: center;">Total Amount to
-						Pay (in Vnd)</td>
+				<tr style="background-color: #fff; color: black; border-bottom: 4px solid #ee4d2d;">
+					<td colspan="6" style="text-align: center;">Tổng Số Tiền (VNĐ)</td>
 					<td><%=totAmount%></td>
 				</tr>
 				<%
 				if (totAmount != 0) {
 				%>
-				<tr style="background-color: grey; color: white;">
+				<tr style="background-color: #fff;  color: black;">
 					<td colspan="4" style="text-align: center;">
 					<td><form method="post">
 							<button formaction="userHome.jsp"
-								style="background-color: black; color: white;">Cancel</button>
+								style="background-color: white; color: #888; border-width: 0">Hủy</button>
 						</form></td>
 					<td colspan="2" align="center"><form method="post">
-							<button style="background-color: blue; color: white;"
-								formaction="payment.jsp?amount=<%=totAmount%>">Pay Now</button>
+							<button style="background-color: #ee4d2d; color: white; border-radius: 20px; border-width: 0"
+								formaction="payment.jsp?amount=<%=totAmount%>">Thanh Toán</button>
 						</form></td>
 
 				</tr>

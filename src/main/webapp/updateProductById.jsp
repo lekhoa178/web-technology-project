@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Update Product</title>
+<title>Cập Nhật Sản Phẩm</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -43,7 +43,7 @@
 				class="col-md-4 col-md-offset-4"
 				style="border: 2px solid black; border-radius: 10px; background-color: #FFE5CC; padding: 10px;">
 				<div style="font-weight: bold;" class="text-center">
-					<h3 style="color: green;">Product Update Form</h3>
+					<h3 style="color: green;">Form Cập Nhật Sản Phẩm</h3>
 					<%
 					if (message != null) {
 					%>
@@ -57,18 +57,17 @@
 				<div></div>
 				<div class="row">
 					<div class="col-md-12 form-group">
-						<label for="last_name">Product Id</label> <input type="text"
-							placeholder="Enter Product Id" name="prodid" class="form-control"
+						<label for="last_name">Mã sản phẩm</label> <input type="text"
+							placeholder="Nhập mã sản phẩm" name="prodid" class="form-control"
 							id="last_name" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6 text-center" style="margin-bottom: 2px;">
-						<a href="adminViewProduct.jsp" class="btn btn-info">Cancel</a>
+						<a href="adminViewProduct.jsp" class="btn btn-info">Hủy</a>
 					</div>
 					<div class="col-md-6 text-center">
-						<button type="submit" class="btn btn-danger">Update
-							Product</button>
+						<button type="submit" class="btn btn-danger">Cập nhật sản phẩm</button>
 					</div>
 				</div>
 			</form>

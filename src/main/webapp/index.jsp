@@ -3,12 +3,12 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.cnw.shoppingweb.service.impl.CartServiceImpl" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-		 pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ellison Electronics</title>
+<title>Cửa Hàng Thời Trang</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -39,18 +39,18 @@
 
 	String search = request.getParameter("search");
 	String type = request.getParameter("type");
-	String message = "All Products";
+	String message = "Tất Cả Sản Phẩm";
 	if (search != null) {
 		products = prodDao.searchAllProducts(search);
-		message = "Showing Results for '" + search + "'";
+		message = "Kết Quả Tìm Kiếm Của '" + search + "'";
 	} else if (type != null) {
 		products = prodDao.getAllProductsByType(type);
-		message = "Showing Results for '" + type + "'";
+		message = "Kết Quả Tìm Kiếm Của '" + type + "'";
 	} else {
 		products = prodDao.getAllProducts();
 	}
 	if (products.isEmpty()) {
-		message = "No items found for the search '" + (search != null ? search : type) + "'";
+		message = "Kết Quả Tìm Kiếm Không Tồn Tại Của '" + (search != null ? search : type) + "'";
 		products = prodDao.getAllProducts();
 	}
 	%>
@@ -82,7 +82,7 @@
 					<p class="productinfo" style="margin: 5px 10px;"><%=description%>..
 					</p>
 					<p class="price">
-						Rs
+						VNĐ
 						<%=product.getProdPrice()%>
 					</p>
 					<form method="post">
@@ -92,21 +92,21 @@
 						<button type="submit"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
 							class="btn btn-success" style="background-color: #ffeee8; color: #ee4d2d; border: 1px solid #ee4d2d">
-							Add to Cart
+							Thêm vào giỏ hàng
 						</button>
 						&nbsp;&nbsp;&nbsp;
 						<button type="submit"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
-							class="btn btn-primary" style="background-color: #ee4d2d; border: none;">Buy Now</button>
+							class="btn btn-primary" style="background-color: #ee4d2d; border: none;">Mua ngay</button>
 						<%
 						} else {
 						%>
 						<button type="submit"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=0"
-							class="btn btn-danger">Remove From Cart</button>
+							class="btn btn-danger">Bỏ khỏi giỏ hàng</button>
 						&nbsp;&nbsp;&nbsp;
 						<button type="submit" formaction="cartDetails.jsp"
-							class="btn btn-success">Checkout</button>
+							class="btn btn-success">Thanh toán</button>
 						<%
 						}
 						%>

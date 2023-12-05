@@ -3,13 +3,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.cnw.shoppingweb.service.impl.OrderServiceImpl" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-		 pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Product Stocks</title>
+<title>Sản Phẩm Tồn Kho</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -43,22 +43,21 @@
 	<jsp:include page="header.jsp" />
 
 	<div class="text-center"
-		style="color: green; font-size: 24px; font-weight: bold;">Stock
-		Products</div>
+		style="color: green; font-size: 24px; font-weight: bold;">Kho sản phẩm</div>
 	<div class="container-fluid">
 		<div class="table-responsive ">
 			<table class="table table-hover table-sm">
 				<thead
 					style="background-color: #2c6c4b; color: white; font-size: 18px;">
 					<tr>
-						<th>Image</th>
-						<th>ProductId</th>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Price</th>
-						<th>Sold Qty</th>
-						<th>Stock Qty</th>
-						<th colspan="2" style="text-align: center">Actions</th>
+						<th>Hình ảnh</th>
+						<th>Mã sản phẩm</th>
+						<th>Tên sản phẩm</th>
+						<th>Loại</th>
+						<th>Giá tiền</th>
+						<th>Số lượng bán</th>
+						<th>Số lượng tồn kho</th>
+						<th colspan="2" style="text-align: center">Hành động</th>
 					</tr>
 				</thead>
 				<tbody style="background-color: white; font-size: 16px;">
@@ -90,14 +89,14 @@
 							<form method="post">
 								<button type="submit"
 									formaction="updateProduct.jsp?prodid=<%=product.getProdId()%>"
-									class="btn btn-primary">Update</button>
+									class="btn btn-primary">Cập nhật</button>
 							</form>
 						</td>
 						<td>
 							<form method="post">
 								<button type="submit"
 									formaction="./RemoveProductSrv?prodid=<%=product.getProdId()%>"
-									class="btn btn-danger">Remove</button>
+									class="btn btn-danger">Xóa</button>
 							</form>
 						</td>
 
@@ -110,8 +109,7 @@
 					if (products.size() == 0) {
 					%>
 					<tr style="background-color: grey; color: white;">
-						<td colspan="7" style="text-align: center;">No Items
-							Available</td>
+						<td colspan="7" style="text-align: center;">Sản phẩm không tồn tại</td>
 
 					</tr>
 					<%

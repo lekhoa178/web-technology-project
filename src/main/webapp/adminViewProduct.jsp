@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page
 	import="com.cnw.shoppingweb.service.impl.*, com.cnw.shoppingweb.service.*,com.cnw.shoppingweb.beans.*,java.util.*,jakarta.servlet.ServletOutputStream,java.io.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>View Products</title>
+<title>Xem Sản Phẩm</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -40,18 +40,18 @@
 
 	String search = request.getParameter("search");
 	String type = request.getParameter("type");
-	String message = "All Products";
+	String message = "Tất Cả Sản Phẩm";
 	if (search != null) {
 		products = prodDao.searchAllProducts(search);
-		message = "Showing Results for '" + search + "'";
+		message = "Kết Quả Tìm Kiếm Của '" + search + "'";
 	} else if (type != null) {
 		products = prodDao.getAllProductsByType(type);
-		message = "Showing Results for '" + type + "'";
+		message = "Kết Quả Tìm Kiếm Của '" + type + "'";
 	} else {
 		products = prodDao.getAllProducts();
 	}
 	if (products.isEmpty()) {
-		message = "No items found for the search '" + (search != null ? search : type) + "'";
+		message = "Không Tìm Thấy Sản Phẩm Của '" + (search != null ? search : type) + "'";
 		products = prodDao.getAllProducts();
 	}
 	%>
@@ -80,17 +80,17 @@
 					</p>
 					<p class="productinfo"><%=product.getProdInfo()%></p>
 					<p class="price">
-						Vnd
+						VNĐ
 						<%=product.getProdPrice()%>
 					</p>
 					<form method="post">
 						<button type="submit"
 							formaction="./RemoveProductSrv?prodid=<%=product.getProdId()%>"
-							class="btn btn-danger">Remove Product</button>
+							class="btn btn-danger">Xóa sản phẩm</button>
 						&nbsp;&nbsp;&nbsp;
 						<button type="submit"
 							formaction="updateProduct.jsp?prodid=<%=product.getProdId()%>"
-							class="btn btn-primary">Update Product</button>
+							class="btn btn-primary">Cập nhật sản phẩm</button>
 					</form>
 				</div>
 			</div>

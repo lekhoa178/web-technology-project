@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page
 	import="com.cnw.shoppingweb.service.impl.*, com.cnw.shoppingweb.beans.*,com.cnw.shoppingweb.service.*,java.util.*"%>
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admin Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Quản Trị Viên Trang Chủ</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -17,7 +17,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/changes.css">
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: #f5f5f5;">
 	<%
 	/* Checking the user credentials */
 	String userType = (String) session.getAttribute("usertype");
@@ -39,21 +39,20 @@
 	<jsp:include page="header.jsp" />
 
 	<div class="text-center"
-		style="color: green; font-size: 24px; font-weight: bold;">UnShipped
-		Orders</div>
+		style="color: #ee4d2d; font-size: 24px; font-weight: bold;">Đơn hàng chưa giao</div>
 	<div class="container-fluid">
 		<div class="table-responsive ">
 			<table class="table table-hover table-sm">
 				<thead
-					style="background-color: #700fb7; color: white; font-size: 16px;">
+					style="background-color: #fff; color: black; font-size: 16px; border-bottom: 3px solid #CCC">
 					<tr>
-						<th>TransactionId</th>
-						<th>ProductId</th>
-						<th>User Email Id</th>
-						<th>Address</th>
-						<th>Quantity</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th>Mã giao dịch</th>
+						<th>Mã sản phẩm</th>
+						<th>Email người dùng</th>
+						<th>Địa chỉ</th>
+						<th>Số lượng</th>
+						<th>Trạng thái</th>
+						<th>Hành động</th>
 					</tr>
 				</thead>
 				<tbody style="background-color: white;">
@@ -81,10 +80,10 @@
 						<td><%=userId%></td>
 						<td><%=userAddr%></td>
 						<td><%=quantity%></td>
-						<td>READY_TO_SHIP</td>
+						<td>SẴN_SÀNG_ĐỂ_GIAO_HÀNG</td>
 						<td><a
 							href="ShipmentServlet?orderid=<%=order.getTransactionId()%>&amount=<%=order.getAmount()%>&userid=<%=userId%>&prodid=<%=order.getProductId()%>"
-							class="btn btn-success">SHIP NOW</a></td>
+							class="btn btn-success">GIAO HÀNG NGAY</a></td>
 					</tr>
 
 					<%
@@ -95,8 +94,7 @@
 					if (count == 0) {
 					%>
 					<tr style="background-color: grey; color: white;">
-						<td colspan="7" style="text-align: center;">No Items
-							Available</td>
+						<td colspan="7" style="text-align: center;">Không Có Sản Phẩm Có Sẵn</td>
 
 					</tr>
 					<%
