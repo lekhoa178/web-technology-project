@@ -24,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public String removeProduct(String prodId) {
-		return removeProduct(prodId);
+		return productDAO.removeProduct(prodId);
 	}
 
 	@Override

@@ -11,6 +11,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/changes.css">
+	<link rel="stylesheet" href="css/FormProduct.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -45,8 +46,11 @@
 		<div class="row"
 			style="margin-top: 5px; margin-left: 2px; margin-right: 2px;">
 			<form action="./UpdateProductSrv" method="post"
-				class="col-md-6 col-md-offset-3"
-				style="border: 2px solid black; border-radius: 10px; background-color: #FFE5CC; padding: 10px;">
+				class="col-md-6 col-md-offset-3 "
+				style=" background-color: #fff;
+						border-radius: 10px;
+						padding: 10px;
+						box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
 				<div style="font-weight: bold;" class="text-center">
 					<div class="form-group">
 						<img src="./ShowImage?pid=<%=product.getProdId()%>"
