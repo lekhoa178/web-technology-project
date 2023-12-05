@@ -3,7 +3,7 @@ package com.cnw.shoppingweb.dao.impl;
 import com.cnw.shoppingweb.beans.UserBean;
 import com.cnw.shoppingweb.constants.IUserConstants;
 import com.cnw.shoppingweb.dao.UserDAO;
-import com.cnw.shoppingweb.utility.DBUtil;
+import com.cnw.shoppingweb.utility.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +23,7 @@ public class  UserDAOImpl implements UserDAO {
             status = "Email Id Already Registered!";
             return status;
         }
-        Connection conn = DBUtil.provideConnection();
+        Connection conn = DatabaseConnector.provideConnection();
         PreparedStatement ps = null;
         if (conn != null) {
             System.out.println("Connected Successfully!");
@@ -51,8 +51,8 @@ public class  UserDAOImpl implements UserDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(ps);
 
         return status;
     }
@@ -60,7 +60,7 @@ public class  UserDAOImpl implements UserDAO {
     private boolean isRegistered(String emailId) {
         boolean flag = false;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -80,9 +80,9 @@ public class  UserDAOImpl implements UserDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(rs);
 
         return flag;
     }
@@ -91,7 +91,7 @@ public class  UserDAOImpl implements UserDAO {
     public UserBean getUserDetails(String emailId) {
         UserBean user = null;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -118,9 +118,9 @@ public class  UserDAOImpl implements UserDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(rs);
 
         return user;    }
 
@@ -129,7 +129,7 @@ public class  UserDAOImpl implements UserDAO {
 
         UserBean user = null;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -157,9 +157,9 @@ public class  UserDAOImpl implements UserDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(rs);
 
         return user;
     }
@@ -168,7 +168,7 @@ public class  UserDAOImpl implements UserDAO {
     public String getFName(String emailId) {
         String fname = "";
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -196,7 +196,7 @@ public class  UserDAOImpl implements UserDAO {
     public String getUserAddr(String userId) {
         String userAddr = "";
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -216,7 +216,7 @@ public class  UserDAOImpl implements UserDAO {
     public String getUserType(String userId) {
         String userType = "";
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 

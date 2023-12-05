@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-import com.cnw.shoppingweb.utility.IDUtil;
+import com.cnw.shoppingweb.utility.IdRefactor;
 
 @SuppressWarnings("serial")
 public class TransactionBean implements Serializable {
@@ -19,7 +19,7 @@ public class TransactionBean implements Serializable {
 
 	public TransactionBean() {
 		super();
-		this.transactionId = IDUtil.generateTransId();
+		this.transactionId = IdRefactor.generateTransId();
 
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
 
@@ -35,7 +35,7 @@ public class TransactionBean implements Serializable {
 		this.userName = userName;
 		this.transAmount = transAmount;
 
-		this.transactionId = IDUtil.generateTransId();
+		this.transactionId = IdRefactor.generateTransId();
 
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
 
@@ -66,7 +66,7 @@ public class TransactionBean implements Serializable {
 		super();
 		this.userName = userName;
 		this.transDateTime = transDateTime;
-		this.transactionId = IDUtil.generateTransId();
+		this.transactionId = IdRefactor.generateTransId();
 		this.transAmount = transAmount;
 	}
 

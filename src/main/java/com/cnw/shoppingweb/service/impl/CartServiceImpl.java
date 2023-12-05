@@ -11,7 +11,7 @@ import com.cnw.shoppingweb.beans.CartBean;
 import com.cnw.shoppingweb.beans.DemandBean;
 import com.cnw.shoppingweb.beans.ProductBean;
 import com.cnw.shoppingweb.service.CartService;
-import com.cnw.shoppingweb.utility.DBUtil;
+import com.cnw.shoppingweb.utility.DatabaseConnector;
 
 public class CartServiceImpl implements CartService {
 
@@ -19,7 +19,7 @@ public class CartServiceImpl implements CartService {
 	public String addProductToCart(String userId, String prodId, int prodQty) {
 		String status = "Failed to Add into Cart";
 
-		Connection con = DBUtil.provideConnection();
+		Connection con = DatabaseConnector.provideConnection();
 
 		PreparedStatement ps = null;
 		PreparedStatement ps2 = null;
@@ -73,10 +73,10 @@ public class CartServiceImpl implements CartService {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(rs);
-		DBUtil.closeConnection(ps2);
+		DatabaseConnector.closeConnection(con);
+		DatabaseConnector.closeConnection(ps);
+		DatabaseConnector.closeConnection(rs);
+		DatabaseConnector.closeConnection(ps2);
 
 		return status;
 	}
@@ -85,7 +85,7 @@ public class CartServiceImpl implements CartService {
 	public List<CartBean> getAllCartItems(String userId) {
 		List<CartBean> items = new ArrayList<CartBean>();
 
-		Connection con = DBUtil.provideConnection();
+		Connection con = DatabaseConnector.provideConnection();
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -114,9 +114,9 @@ public class CartServiceImpl implements CartService {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(rs);
+		DatabaseConnector.closeConnection(con);
+		DatabaseConnector.closeConnection(ps);
+		DatabaseConnector.closeConnection(rs);
 
 		return items;
 	}
@@ -125,7 +125,7 @@ public class CartServiceImpl implements CartService {
 	public int getCartCount(String userId) {
 		int count = 0;
 
-		Connection con = DBUtil.provideConnection();
+		Connection con = DatabaseConnector.provideConnection();
 
 		PreparedStatement ps = null;
 
@@ -146,9 +146,9 @@ public class CartServiceImpl implements CartService {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(rs);
+		DatabaseConnector.closeConnection(con);
+		DatabaseConnector.closeConnection(ps);
+		DatabaseConnector.closeConnection(rs);
 
 		return count;
 	}
@@ -157,7 +157,7 @@ public class CartServiceImpl implements CartService {
 	public String removeProductFromCart(String userId, String prodId) {
 		String status = "Product Removal Failed";
 
-		Connection con = DBUtil.provideConnection();
+		Connection con = DatabaseConnector.provideConnection();
 
 		PreparedStatement ps = null;
 		PreparedStatement ps2 = null;
@@ -216,10 +216,10 @@ public class CartServiceImpl implements CartService {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(rs);
-		DBUtil.closeConnection(ps2);
+		DatabaseConnector.closeConnection(con);
+		DatabaseConnector.closeConnection(ps);
+		DatabaseConnector.closeConnection(rs);
+		DatabaseConnector.closeConnection(ps2);
 
 		return status;
 	}
@@ -228,7 +228,7 @@ public class CartServiceImpl implements CartService {
 	public boolean removeAProduct(String userId, String prodId) {
 		boolean flag = false;
 
-		Connection con = DBUtil.provideConnection();
+		Connection con = DatabaseConnector.provideConnection();
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -249,9 +249,9 @@ public class CartServiceImpl implements CartService {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(rs);
+		DatabaseConnector.closeConnection(con);
+		DatabaseConnector.closeConnection(ps);
+		DatabaseConnector.closeConnection(rs);
 
 		return flag;
 	}
@@ -261,7 +261,7 @@ public class CartServiceImpl implements CartService {
 
 		String status = "Failed to Add into Cart";
 
-		Connection con = DBUtil.provideConnection();
+		Connection con = DatabaseConnector.provideConnection();
 
 		PreparedStatement ps = null;
 		PreparedStatement ps2 = null;
@@ -323,10 +323,10 @@ public class CartServiceImpl implements CartService {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(rs);
-		DBUtil.closeConnection(ps2);
+		DatabaseConnector.closeConnection(con);
+		DatabaseConnector.closeConnection(ps);
+		DatabaseConnector.closeConnection(rs);
+		DatabaseConnector.closeConnection(ps2);
 
 		return status;
 	}
@@ -334,7 +334,7 @@ public class CartServiceImpl implements CartService {
 	public int getProductCount(String userId, String prodId) {
 		int count = 0;
 
-		Connection con = DBUtil.provideConnection();
+		Connection con = DatabaseConnector.provideConnection();
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -360,7 +360,7 @@ public class CartServiceImpl implements CartService {
 		int count = 0;
 		if (userId == null || itemId == null)
 			return 0;
-		Connection con = DBUtil.provideConnection();
+		Connection con = DatabaseConnector.provideConnection();
 
 		PreparedStatement ps = null;
 
@@ -382,9 +382,9 @@ public class CartServiceImpl implements CartService {
 			e.printStackTrace();
 		}
 
-		DBUtil.closeConnection(con);
-		DBUtil.closeConnection(ps);
-		DBUtil.closeConnection(rs);
+		DatabaseConnector.closeConnection(con);
+		DatabaseConnector.closeConnection(ps);
+		DatabaseConnector.closeConnection(rs);
 
 		return count;
 	}

@@ -1,5 +1,5 @@
 package com.cnw.shoppingweb.dao;
 
-public interface TransDAO {
+public interface TransactionDAO {
     String getUserId(String transId);
 }

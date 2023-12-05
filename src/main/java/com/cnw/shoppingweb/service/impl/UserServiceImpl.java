@@ -2,11 +2,9 @@ package com.cnw.shoppingweb.service.impl;
 
 
 import com.cnw.shoppingweb.beans.UserBean;
-import com.cnw.shoppingweb.constants.IUserConstants;
 import com.cnw.shoppingweb.dao.UserDAO;
 import com.cnw.shoppingweb.dao.impl.UserDAOImpl;
 import com.cnw.shoppingweb.service.UserService;
-import com.cnw.shoppingweb.utility.DBUtil;
 
 public class UserServiceImpl implements UserService {
 

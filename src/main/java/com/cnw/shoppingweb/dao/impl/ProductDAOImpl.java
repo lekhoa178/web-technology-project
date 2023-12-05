@@ -6,8 +6,8 @@ import com.cnw.shoppingweb.dao.ProductDAO;
 import com.cnw.shoppingweb.service.impl.DemandServiceImpl;
 import com.cnw.shoppingweb.service.impl.ProductServiceImpl;
 import com.cnw.shoppingweb.service.impl.UserServiceImpl;
-import com.cnw.shoppingweb.utility.DBUtil;
-import com.cnw.shoppingweb.utility.IDUtil;
+import com.cnw.shoppingweb.utility.DatabaseConnector;
+import com.cnw.shoppingweb.utility.IdRefactor;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -22,7 +22,7 @@ public class ProductDAOImpl implements ProductDAO {
     public String addProduct(String prodName, String prodType, String prodInfo, double prodPrice, int prodQuantity,
                              InputStream prodImage) {
         String status = null;
-        String prodId = IDUtil.generateId();
+        String prodId = IdRefactor.generateId();
 
         ProductBean product = new ProductBean(prodId, prodName, prodType, prodInfo, prodPrice, prodQuantity, prodImage);
 
@@ -36,9 +36,9 @@ public class ProductDAOImpl implements ProductDAO {
         String status = "Product Registration Failed!";
 
         if (product.getProdId() == null)
-            product.setProdId(IDUtil.generateId());
+            product.setProdId(IdRefactor.generateId());
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -68,8 +68,8 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
 
         return status;
     }
@@ -78,7 +78,7 @@ public class ProductDAOImpl implements ProductDAO {
     public String removeProduct(String prodId) {
         String status = "Product Removal Failed!";
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -105,9 +105,9 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(ps2);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(ps2);
 
         return status;
     }
@@ -123,7 +123,7 @@ public class ProductDAOImpl implements ProductDAO {
             return status;
         }
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -149,8 +149,8 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
 
         return status;
     }
@@ -159,7 +159,7 @@ public class ProductDAOImpl implements ProductDAO {
     public String updateProductPrice(String prodId, double updatedPrice) {
         String status = "Price Updation Failed!";
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -178,8 +178,8 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
 
         return status;
     }
@@ -188,7 +188,7 @@ public class ProductDAOImpl implements ProductDAO {
     public List<ProductBean> getAllProducts() {
         List<ProductBean> products = new ArrayList<ProductBean>();
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -218,9 +218,9 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(rs);
 
         return products;
     }
@@ -229,7 +229,7 @@ public class ProductDAOImpl implements ProductDAO {
     public List<ProductBean> getAllProductsByType(String type) {
         List<ProductBean> products = new ArrayList<ProductBean>();
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -259,9 +259,9 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(rs);
 
         return products;
     }
@@ -270,7 +270,7 @@ public class ProductDAOImpl implements ProductDAO {
     public List<ProductBean> searchAllProducts(String search) {
         List<ProductBean> products = new ArrayList<ProductBean>();
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -304,9 +304,9 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(rs);
 
         return products;
     }
@@ -315,7 +315,7 @@ public class ProductDAOImpl implements ProductDAO {
     public byte[] getImage(String prodId) {
         byte[] image = null;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -335,9 +335,9 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(rs);
 
         return image;
     }
@@ -346,7 +346,7 @@ public class ProductDAOImpl implements ProductDAO {
     public ProductBean getProductDetails(String prodId) {
         ProductBean product = null;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -373,8 +373,8 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
 
         return product;
     }
@@ -391,7 +391,7 @@ public class ProductDAOImpl implements ProductDAO {
         }
 
         int prevQuantity = new ProductServiceImpl().getProductQuantity(prevProductId);
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -436,8 +436,8 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
         // System.out.println("Prod Update status : "+status);
 
         return status;
@@ -447,7 +447,7 @@ public class ProductDAOImpl implements ProductDAO {
     public double getProductPrice(String prodId) {
         double price = 0;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -467,8 +467,8 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
 
         return price;
     }
@@ -477,7 +477,7 @@ public class ProductDAOImpl implements ProductDAO {
     public boolean sellNProduct(String prodId, int n) {
         boolean flag = false;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
 
@@ -498,8 +498,8 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
 
         return flag;
     }
@@ -509,7 +509,7 @@ public class ProductDAOImpl implements ProductDAO {
 
         int quantity = 0;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -529,8 +529,8 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
 
         return quantity;
     }

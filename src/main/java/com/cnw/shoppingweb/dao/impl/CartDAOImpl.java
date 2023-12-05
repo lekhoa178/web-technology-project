@@ -1,18 +1,13 @@
 package com.cnw.shoppingweb.dao.impl;
 
 import com.cnw.shoppingweb.beans.CartBean;
-import com.cnw.shoppingweb.beans.DemandBean;
-import com.cnw.shoppingweb.beans.ProductBean;
 import com.cnw.shoppingweb.dao.CartDAO;
-import com.cnw.shoppingweb.service.impl.DemandServiceImpl;
-import com.cnw.shoppingweb.service.impl.ProductServiceImpl;
-import com.cnw.shoppingweb.utility.DBUtil;
+import com.cnw.shoppingweb.utility.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartDAOImpl implements CartDAO {
@@ -50,7 +45,7 @@ public class CartDAOImpl implements CartDAO {
     public int getProductCount(String userId, String prodId) {
         int count = 0;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
