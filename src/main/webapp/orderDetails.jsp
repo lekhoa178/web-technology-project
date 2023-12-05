@@ -85,6 +85,6 @@
 	<!-- ENd of Product Items List -->
 
 
-	<%@ include file="footer.html"%>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

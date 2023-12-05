@@ -27,7 +27,7 @@
 	String userName = (String) session.getAttribute("username");
 	String password = (String) session.getAttribute("password");
 
-	if (userType == null || !userType.equals("admin")) {
+	if (userType == null || !userType.equals("ADMIN")) {
 
 		response.sendRedirect("login.jsp?message=Access Denied, Login as admin!!");
 
@@ -120,6 +120,6 @@
 		</div>
 	</div>
 
-	<%@ include file="footer.html"%>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

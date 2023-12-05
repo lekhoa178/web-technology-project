@@ -46,7 +46,7 @@
 	%>
 
 	<!-- Starting Navigation Bar -->
-	<nav class="navbar	 navbar-fixed-top" >
+	<nav class="navbar navbar-fixed-top" >
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -79,7 +79,7 @@
 		</div>
 	</nav>
 	<%
-	} else if ("customer".equalsIgnoreCase(userType)) { //CUSTOMER HEADER
+	} else if ("USER".equalsIgnoreCase(userType)) { //CUSTOMER HEADER
 
 	int notf = new CartServiceImpl().getCartCount((String) session.getAttribute("username"));
 	%>
@@ -96,7 +96,7 @@
 					class="glyphicon glyphicon-home">&nbsp;</span>Bài tập công nghệ Web</a>
 			</div>
 
-			<div class="collapse navbar-collapse" id="myNavbar">
+			<div class="collapse navbar-collapse" id="myNavbar1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="userHome.jsp"><span>Sản phẩm</span></a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
@@ -135,7 +135,7 @@
 		</div>
 	</nav>
 	<%
-	} else { //ADMIN HEADER
+	} else if ("ADMIN".equalsIgnoreCase(userType)) { //ADMIN HEADER
 	%>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">

@@ -1,0 +1,9 @@
+.footer {
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.footer .row {
+    width: 100%;
+}

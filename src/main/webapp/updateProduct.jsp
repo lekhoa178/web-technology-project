@@ -27,7 +27,7 @@
 	if (prodid == null || product == null) {
 		response.sendRedirect("updateProductById.jsp?message=Please Enter a valid product Id");
 		return;
-	} else if (utype == null || !utype.equals("admin")) {
+	} else if (utype == null || !utype.equals("ADMIN")) {
 		response.sendRedirect("login.jsp?message=Access Denied, Login as admin!!");
 		return;
 	} else if (uname == null || pwd == null) {
@@ -124,6 +124,6 @@
 		</div>
 	</div>
 
-	<%@ include file="footer.html"%>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>
