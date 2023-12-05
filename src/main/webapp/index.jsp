@@ -19,7 +19,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: #f5f5f5;">
 
 	<%
 	/* Checking the user credentials */
@@ -58,11 +58,11 @@
 	<jsp:include page="header.jsp" />
 
 	<div class="text-center"
-		style="color: black; font-size: 14px; font-weight: bold;"><%=message%></div>
+<%--		style="color: black; font-size: 14px; font-weight: bold;"><%=message%></div>--%>
 	<div class="text-center" id="message"
 		style="color: black; font-size: 14px; font-weight: bold;"></div>
 	<!-- Start of Product Items List -->
-	<div class="container">
+	<div class="container" style="background-color: #f5f5f5;">
 		<div class="row text-center">
 
 			<%
@@ -79,7 +79,7 @@
 					String description = product.getProdInfo();
 					description = description.substring(0, Math.min(description.length(), 100));
 					%>
-					<p class="productinfo"><%=description%>..
+					<p class="productinfo" style="margin: 5px 10px;"><%=description%>..
 					</p>
 					<p class="price">
 						Rs
@@ -91,11 +91,13 @@
 						%>
 						<button type="submit"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
-							class="btn btn-success">Add to Cart</button>
+							class="btn btn-success" style="background-color: #ffeee8; color: #ee4d2d; border: 1px solid #ee4d2d">
+							Add to Cart
+						</button>
 						&nbsp;&nbsp;&nbsp;
 						<button type="submit"
 							formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
-							class="btn btn-primary">Buy Now</button>
+							class="btn btn-primary" style="background-color: #ee4d2d; border: none;">Buy Now</button>
 						<%
 						} else {
 						%>

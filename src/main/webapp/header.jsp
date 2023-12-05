@@ -1,5 +1,5 @@
 <%@ page import="com.cnw.shoppingweb.service.impl.CartServiceImpl" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page  language="java" contentType="text/html; charset=ISO-8859-1"
 		 pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/changes.css">
+<link rel="stylesheet" href="/css/changes.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -21,15 +21,15 @@
 <body style="background-color: #E6F9E6;">
 	<!--Company Header Starting  -->
 	<div class="container-fluid text-center"
-		style="margin-top: 45px; background-color: #33cc33; color: white; padding: 5px;">
+		style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;
+		 margin: 45px 0; background-color: #ee4d2d; color: white; padding: 5px;">
 		<h2>Ellison Electronics</h2>
-		<h6>We specialize in Electronics</h6>
 		<form class="form-inline" action="index.jsp" method="get">
-			<div class="input-group">
-				<input type="text" class="form-control" size="50" name="search"
+			<div class="input-group" style="border: none; border-radius: 5px; padding: 2px; background-color: white">
+				<input type="text" class="form-control shadow-none" style="border: none; box-shadow: none" size="50" name="search"
 					placeholder="Search Items" required>
-				<div class="input-group-btn">
-					<input type="submit" class="btn btn-danger" value="Search" />
+				<div class="input-group-btn ">
+					<input type="submit" style="background-color: #ee4d2d; border: 0; border-radius: 3px; margin-right: 1px;" class="btn btn-primary" value="Search" />
 				</div>
 			</div>
 		</form>
@@ -46,18 +46,21 @@
 	%>
 
 	<!-- Starting Navigation Bar -->
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar	 navbar-fixed-top" >
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
+					data-target="#myNavbar1">
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.jsp"><span
-					class="glyphicon glyphicon-home">&nbsp;</span>Shopping Center</a>
+				<a class="navbar-brand" href="index.jsp">
+					<span class="glyphicon glyphicon-home">&nbsp;
+					</span>
+					Shopping Center
+				</a>
 			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
+			<div class="collapse navbar-collapse" id="myNavbar1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="login.jsp">Login</a></li>
 					<li><a href="register.jsp">Register</a></li>
