@@ -3,7 +3,7 @@ package com.cnw.shoppingweb.utility;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class IDUtil {
+public class IdRefactor {
 
 	public static String generateId() {
 		String pId = null;

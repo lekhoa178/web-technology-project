@@ -66,7 +66,7 @@
 						String prodId = order.getProductId();
 						int quantity = order.getQuantity();
 						int shipped = order.getShipped();
-						String userId = new TransServiceImpl().getUserId(transId);
+						String userId = new TransactionServiceImpl().getUserId(transId);
 						String userAddr = new UserServiceImpl().getUserAddr(userId);
 						if (shipped != 0) {
 							count++;

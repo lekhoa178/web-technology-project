@@ -1,20 +1,12 @@
 package com.cnw.shoppingweb.service.impl;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.cnw.shoppingweb.beans.DemandBean;
 import com.cnw.shoppingweb.beans.ProductBean;
 import com.cnw.shoppingweb.dao.ProductDAO;
 import com.cnw.shoppingweb.dao.impl.ProductDAOImpl;
 import com.cnw.shoppingweb.service.ProductService;
-import com.cnw.shoppingweb.utility.DBUtil;
-import com.cnw.shoppingweb.utility.IDUtil;
 
 public class ProductServiceImpl implements ProductService {
 	private final ProductDAO productDAO = new ProductDAOImpl();

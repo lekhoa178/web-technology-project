@@ -1,19 +1,19 @@
 package com.cnw.shoppingweb.dao.impl;
 
-import com.cnw.shoppingweb.dao.TransDAO;
-import com.cnw.shoppingweb.utility.DBUtil;
+import com.cnw.shoppingweb.dao.TransactionDAO;
+import com.cnw.shoppingweb.utility.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TransDAOImpl implements TransDAO {
+public class TransactionDAOImpl implements TransactionDAO {
     @Override
     public String getUserId(String transId) {
         String userId = "";
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 

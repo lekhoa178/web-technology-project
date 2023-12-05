@@ -1,17 +1,12 @@
 package com.cnw.shoppingweb.service.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.cnw.shoppingweb.beans.DemandBean;
 import com.cnw.shoppingweb.dao.DemandDAO;
 import com.cnw.shoppingweb.dao.impl.DemandDAOImpl;
 import com.cnw.shoppingweb.service.DemandService;
-import com.cnw.shoppingweb.utility.DBUtil;
+
 //This class is to process the demand items which are
 //not available at the time of purchase by any customer
 //the customer will receive mail once the product is avaible

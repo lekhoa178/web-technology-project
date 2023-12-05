@@ -1,6 +1,6 @@
 package com.cnw.shoppingweb.service;
 
-public interface TransService {
+public interface TransactionService {
 
 	public String getUserId(String transId);
 }

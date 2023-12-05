@@ -2,7 +2,7 @@ package com.cnw.shoppingweb.dao.impl;
 
 import com.cnw.shoppingweb.beans.DemandBean;
 import com.cnw.shoppingweb.dao.DemandDAO;
-import com.cnw.shoppingweb.utility.DBUtil;
+import com.cnw.shoppingweb.utility.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ public class DemandDAOImpl implements DemandDAO {
         boolean flag = false;
 
         //get the database connection
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -55,10 +55,10 @@ public class DemandDAOImpl implements DemandDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(ps2);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(ps2);
+        DatabaseConnector.closeConnection(rs);
         //return true if the product is added into the db
         return flag;
     }
@@ -67,7 +67,7 @@ public class DemandDAOImpl implements DemandDAO {
     public boolean removeProduct(String userId, String prodId) {
         boolean flag = false;
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -106,10 +106,10 @@ public class DemandDAOImpl implements DemandDAO {
             e.printStackTrace();
         }
 
-        DBUtil.closeConnection(con);
-        DBUtil.closeConnection(ps);
-        DBUtil.closeConnection(ps2);
-        DBUtil.closeConnection(rs);
+        DatabaseConnector.closeConnection(con);
+        DatabaseConnector.closeConnection(ps);
+        DatabaseConnector.closeConnection(ps2);
+        DatabaseConnector.closeConnection(rs);
 
         return flag;
     }
@@ -124,7 +124,7 @@ public class DemandDAOImpl implements DemandDAO {
     public List<DemandBean> haveDemanded(String prodId) {
         List<DemandBean> demandList = new ArrayList<DemandBean>();
 
-        Connection con = DBUtil.provideConnection();
+        Connection con = DatabaseConnector.provideConnection();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
