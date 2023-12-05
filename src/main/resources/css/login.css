@@ -1,0 +1,25 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#loginForm .row input, #userrole {
+    border-radius: 0;
+    font-size: 16px;
+    box-shadow: none;
+}
+
+#loginForm {
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#loginForm .row {
+    margin-top: 10px;
+}

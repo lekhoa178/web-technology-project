@@ -17,7 +17,7 @@ body {
 
 /* On hover, the links will turn white */
 .navbar-nav li a:hover {
-	color: lightgrey !important;
+	color: darkgray !important;
 	background: transparent;
 }
 
