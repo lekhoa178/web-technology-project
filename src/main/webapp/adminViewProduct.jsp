@@ -16,7 +16,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: #f5f5f5;">
 
 	<%
 	/* Checking the user credentials */
@@ -64,7 +64,7 @@
 		style="color: black; font-size: 16px; font-weight: bold; margin-bottom: 15px"><%=message%></div>
 
 	<!-- Start of Product Items List -->
-	<div class="container" style="background-color: #E6F9E6;">
+	<div class="container" style="background-color: #f5f5f5;">
 		<div class="row text-center">
 
 			<%

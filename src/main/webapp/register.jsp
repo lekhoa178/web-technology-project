@@ -6,13 +6,14 @@
 <title>Đăng Kí</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/changes.css">
+	<link rel="stylesheet" href="css/changes.css">
+	<link rel="stylesheet" href="css/login.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: #f5f5f5">
 
 	<%@ include file="header.jsp"%>
 	<%
@@ -23,8 +24,7 @@
 			style="margin-top: 5px; margin-left: 2px; margin-right: 2px;">
 
 			<form action="./RegisterSrv" method="post"
-				class="col-md-6 col-md-offset-3"
-				style="border: 2px solid black; border-radius: 10px; background-color: #FFE5CC; padding: 10px;">
+				class="col-md-6 col-md-offset-3 login-form-container">
 				<div style="font-weight: bold;" class="text-center">
 					<h2 style="color: green;">Đơn Đăng Kí</h2>
 					<%
@@ -45,39 +45,35 @@
 							name="first_name" required>
 					</div>
 					<div class="col-md-6 form-group">
-						<label for="last_name">Email</label> <input type="email"
-							name="email" class="form-control" id="last_name" name="last_name"
+						<label for="email">Email</label> <input type="email"
+							name="email" class="form-control" id="email"
 							required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="last_name">Địa chỉ</label>
-					<textarea name="address" class="form-control" id="last_name"
-						name="last_name" required></textarea>
+					<label for="address">Địa chỉ</label>
+					<textarea name="address" class="form-control" id="address"required></textarea>
 				</div>
 				<div class="row">
 					<div class="col-md-6 form-group">
-						<label for="last_name">Số điện thoại</label> <input type="number"
-							name="mobile" class="form-control" id="last_name"
-							name="last_name" required>
+						<label for="mobile">Số điện thoại</label> <input type="number"
+							name="mobile" class="form-control" id="mobile" required>
 					</div>
 					<div class="col-md-6 form-group">
-						<label for="last_name">Mã Pin</label> <input type="number"
-							name="pincode" class="form-control" id="last_name"
-							name="last_name" required>
+						<label for="pincode">Mã Pin</label> <input type="number"
+							name="pincode" class="form-control" id="pincode" required>
 					</div>
 
 				</div>
 				<div class="row">
 					<div class="col-md-6 form-group">
-						<label for="last_name">Mật khẩu</label> <input type="password"
-							name="password" class="form-control" id="last_name"
-							name="last_name" required>
+						<label for="password">Mật khẩu</label> <input type="password"
+							name="password" class="form-control" id="password" required>
 					</div>
 					<div class="col-md-6 form-group">
-						<label for="last_name">Xác nhận mật khẩu</label> <input
+						<label for="passwordConf">Xác nhận mật khẩu</label> <input
 							type="password" name="confirmPassword" class="form-control"
-							id="last_name" name="last_name" required>
+							id="passwordConf" required>
 					</div>
 				</div>
 				<div class="row text-center">

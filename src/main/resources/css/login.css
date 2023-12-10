@@ -4,22 +4,28 @@
     margin-top: 100px;
 }
 
-#loginForm .row input, #userrole {
+.login-form-container {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.login-form-container .row input{
     border-radius: 0;
     font-size: 16px;
     box-shadow: none;
 }
 
-#loginForm {
-    border: none;
-    border-radius: 10px;
-    background-color: white;
-    padding: 20px;
-    width: 400px;
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+.login-form-container .row {
+    margin-top: 10px;
 }
 
-#loginForm .row {
-    margin-top: 10px;
+.login-form-container .row button {
+    background-color: #ee4d2d;
+    border: none;
+    border-radius: 0;
 }

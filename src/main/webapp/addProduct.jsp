@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="css/changes.css" />
     <link rel="stylesheet" href="css/FormProduct.css" />
   </head>
-  <body style="background-color: #e6f9e6">
+  <body style="background-color: #f5f5f5">
     <% /* Checking the user credentials */ String userType =
     (String)session.getAttribute("usertype"); String userName =
     (String)session.getAttribute("username"); String password =

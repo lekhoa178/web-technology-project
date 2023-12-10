@@ -8,8 +8,9 @@ pageEncoding="UTF-8" %>
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="css/changes.css" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/changes.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -28,7 +29,7 @@ pageEncoding="UTF-8" %>
         class="row"
         style="margin-top: 5px; margin-left: 2px; margin-right: 2px"
       >
-        <form action="./LoginSrv" method="post" id="loginForm">
+        <form action="./LoginSrv" method="post" id="loginForm" class="login-form-container">
           <div style="font-weight: bold" class="text-center">
             <h2 style="color: black">Đăng nhập</h2>
             <% if (message != null) { %>
@@ -67,11 +68,6 @@ pageEncoding="UTF-8" %>
               <button
                 type="submit"
                 class="btn btn-primary btn-lg btn-block input-lg"
-                style="
-                  background-color: #ee4d2d;
-                  border: none;
-                  border-radius: 0;
-                "
               >
                 Đăng nhập
               </button>
