@@ -21,21 +21,18 @@
 <body style="background-color: #E6F9E6;">
 	<!--Company Header Starting  -->
 	<div class="container-fluid text-center"
-		style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;
+		style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;
 		 margin: 45px 0; background-color: #ee4d2d; color: white; padding: 5px;">
-		<h2>Cửa Hàng Thời Trang</h2>
+		<h2 style="height: 45px;">Cửa Hàng Thời Trang</h2>
 		<form class="form-inline" action="index.jsp" method="get">
 			<div class="input-group" style="border: none; border-radius: 5px; padding: 2px; background-color: white">
-				<input type="text" class="form-control shadow-none" style="border: none; box-shadow: none" size="50" name="search"
+				<input type="text" class="form-control shadow-none" style="border: none; box-shadow: none" size="100" name="search"
 					placeholder="Tìm kiếm sản phẩm" required>
 				<div class="input-group-btn ">
 					<input type="submit" style="background-color: #ee4d2d; border: 0; border-radius: 3px; margin-right: 1px;" class="btn btn-primary" value="Tìm kiếm" />
 				</div>
 			</div>
 		</form>
-		<p align="center"
-			style="color: blue; font-weight: bold; margin-top: 5px; margin-bottom: 5px;"
-			id="message"></p>
 	</div>
 	<!-- Company Header Ending -->
 
