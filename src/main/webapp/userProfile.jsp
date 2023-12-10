@@ -69,7 +69,7 @@
 
 		<div class="row">
 
-			<div class="col-lg-8">
+			<div class="col-lg-8" style="border-bottom: 2px solid #ee4d2d">
 				<div class="card mb-4">
 					<div class="card-body" style="display: flex; flex-direction: column; gap: 25px">
 						<div class="row" style="display: flex; align-items: center">
@@ -142,8 +142,13 @@
 						</ul>
 					</div>
 				</div>
+
 			</div>
 		</div>
+
+		<a href="orderDetails.jsp"
+		   style="display: inline-block; background-color: #ffac9c; border-radius: 15px; padding: 30px; margin: 15px; color: #ee4d2d; font-weight: bold; font-size: 20px">
+			Xem Đơn Hàng Của Bạn</a>
 	</div>
 
 	<br>

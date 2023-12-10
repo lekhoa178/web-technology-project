@@ -23,7 +23,7 @@
 	<div class="container-fluid text-center"
 		style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;
 		 margin: 45px 0; background-color: #ee4d2d; color: white; padding: 5px;">
-		<h2>Cửa Hàng Thời Trang</h2>
+		<h2 style="font-weight: bold">👟👜👔💍Cửa Hàng Thời Trang</h2>
 		<form class="form-inline" action="index.jsp" method="get">
 			<div class="input-group" style="border: none; border-radius: 5px; padding: 2px; background-color: white">
 				<input type="text" class="form-control shadow-none" style="border: none; box-shadow: none" size="50" name="search"
@@ -33,9 +33,28 @@
 				</div>
 			</div>
 		</form>
-		<p align="center"
-			style="color: blue; font-weight: bold; margin-top: 5px; margin-bottom: 5px;"
-			id="message"></p>
+
+		<%
+			int notf = new CartServiceImpl().getCartCount((String) session.getAttribute("username"));
+
+			if (notf == 0) {
+		%>
+		<a href="cartDetails.jsp"> <span
+				class="glyphicon glyphicon-shopping-cart">Giỏ hàng</span>
+		</a>
+
+		<%
+		} else {
+		%>
+		<a href="cartDetails.jsp"
+		   style="margin: 0px; padding: 0px;" id="mycart"><i
+				data-count="<%=notf%>"
+				class="fa fa-shopping-cart fa-3x icon-white badge"
+				style="background-color: #fff; color: #ee4d2d; margin: 0px; padding: 0px; padding-bottom: 0px; padding-top: 5px;">
+		</i></a>
+		<%
+			}
+		%>
 	</div>
 	<!-- Company Header Ending -->
 
@@ -81,7 +100,6 @@
 	<%
 	} else if ("USER".equalsIgnoreCase(userType)) { //CUSTOMER HEADER
 
-	int notf = new CartServiceImpl().getCartCount((String) session.getAttribute("username"));
 	%>
 	<nav class="navbar navbar-default navbar-fixed-top">
 
@@ -108,26 +126,7 @@
 							<li><a href="userHome.jsp?type=laptop">Trang sức</a></li>
 							<li><a href="userHome.jsp?type=camera">Ví</a></li>
 						</ul></li>
-					<%
-					if (notf == 0) {
-					%>
-					<li><a href="cartDetails.jsp"> <span
-							class="glyphicon glyphicon-shopping-cart"></span>Giỏ hàng
-					</a></li>
 
-					<%
-					} else {
-					%>
-					<li><a href="cartDetails.jsp"
-						style="margin: 0px; padding: 0px;" id="mycart"><i
-							data-count="<%=notf%>"
-							class="fa fa-shopping-cart fa-3x icon-white badge"
-							style="background-color: #333; margin: 0px; padding: 0px; padding-bottom: 0px; padding-top: 5px;">
-						</i></a></li>
-					<%
-					}
-					%>
-					<li><a href="orderDetails.jsp">Đơn hàng</a></li>
 					<li><a href="userProfile.jsp">Hồ sơ</a></li>
 					<li><a href="./LogoutSrv">Đăng xuất</a></li>
 				</ul>
