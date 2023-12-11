@@ -88,10 +88,10 @@
 						data-toggle="dropdown" href="#">Danh mục<span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="index.jsp?type=mobile">Giày dép</a></li>
-							<li><a href="index.jsp?type=tv">Túi xách</a></li>
-							<li><a href="index.jsp?type=laptop">Trang sức</a></li>
-							<li><a href="index.jsp?type=camera">Ví</a></li>
+							<li><a href="index.jsp?type=shoes">Giày dép</a></li>
+							<li><a href="index.jsp?type=handbag">Túi xách</a></li>
+							<li><a href="index.jsp?type=jewellery">Trang sức</a></li>
+							<li><a href="index.jsp?type=wallet">Ví</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -121,10 +121,10 @@
 						data-toggle="dropdown" href="#">Danh mục<span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="userHome.jsp?type=mobile">Giày dép</a></li>
-							<li><a href="userHome.jsp?type=tv">Túi xách</a></li>
-							<li><a href="userHome.jsp?type=laptop">Trang sức</a></li>
-							<li><a href="userHome.jsp?type=camera">Ví</a></li>
+							<li><a href="userHome.jsp?type=shoes">Giày dép</a></li>
+							<li><a href="userHome.jsp?type=handbag">Túi xách</a></li>
+							<li><a href="userHome.jsp?type=jewellery">Trang sức</a></li>
+							<li><a href="userHome.jsp?type=wallet">Ví</a></li>
 						</ul></li>
 
 					<li><a href="userProfile.jsp">Hồ sơ</a></li>
@@ -154,10 +154,10 @@
 						data-toggle="dropdown" href="#">Danh mục<span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="adminViewProduct.jsp?type=mobile">Giày dép</a></li>
-							<li><a href="adminViewProduct.jsp?type=tv">Túi xách</a></li>
-							<li><a href="adminViewProduct.jsp?type=laptop">Trang sức</a></li>
-							<li><a href="adminViewProduct.jsp?type=camera">Ví</a></li>
+							<li><a href="adminViewProduct.jsp?type=shoes">Giày dép</a></li>
+							<li><a href="adminViewProduct.jsp?type=handbag">Túi xách</a></li>
+							<li><a href="adminViewProduct.jsp?type=jewellery">Trang sức</a></li>
+							<li><a href="adminViewProduct.jsp?type=wallet">Ví</a></li>
 						</ul></li>
 					<li><a href="adminStock.jsp">Kho hàng</a></li>
 					<li><a href="shippedItems.jsp">Đã giao</a></li>
