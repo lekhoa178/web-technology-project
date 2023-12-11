@@ -1,7 +1,7 @@
 package com.cnw.shoppingweb.service.impl;
 
 
-import com.cnw.shoppingweb.beans.UserBean;
+import com.cnw.shoppingweb.beans.User;
 import com.cnw.shoppingweb.dao.UserDAO;
 import com.cnw.shoppingweb.dao.impl.UserDAOImpl;
 import com.cnw.shoppingweb.service.UserService;
@@ -14,12 +14,12 @@ public class UserServiceImpl implements UserService {
 	public String registerUser(String userName, Long mobileNo, String emailId, String address, int pinCode,
 			String password) {
 
-		UserBean user = new UserBean(userName, mobileNo, emailId, address, pinCode, password, "USER");
+		User user = new User(userName, mobileNo, emailId, address, pinCode, password, "USER");
         return registerUser(user);
 	}
 
 	@Override
-	public String registerUser(UserBean user) {
+	public String registerUser(User user) {
 		return userDAO.registerUser(user);
 	}
 
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserBean getUserDetails(String emailId, String password) {
+	public User getUserDetails(String emailId, String password) {
 		return userDAO.getUserDetails(emailId, password);
 	}
 

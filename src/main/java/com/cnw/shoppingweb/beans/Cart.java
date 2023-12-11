@@ -3,9 +3,9 @@ package com.cnw.shoppingweb.beans;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class CartBean implements Serializable {
+public class Cart implements Serializable {
 
-	public CartBean() {
+	public Cart() {
 	}
 
 	public String userId;
@@ -38,7 +38,7 @@ public class CartBean implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public CartBean(String userId, String prodId, int quantity) {
+	public Cart(String userId, String prodId, int quantity) {
 		super();
 		this.userId = userId;
 		this.prodId = prodId;

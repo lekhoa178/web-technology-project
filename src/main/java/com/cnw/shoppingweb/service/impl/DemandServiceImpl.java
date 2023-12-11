@@ -2,7 +2,7 @@ package com.cnw.shoppingweb.service.impl;
 
 import java.util.List;
 
-import com.cnw.shoppingweb.beans.DemandBean;
+import com.cnw.shoppingweb.beans.Demand;
 import com.cnw.shoppingweb.dao.DemandDAO;
 import com.cnw.shoppingweb.dao.impl.DemandDAOImpl;
 import com.cnw.shoppingweb.service.DemandService;
@@ -25,13 +25,13 @@ public class DemandServiceImpl implements DemandService {
 	}
 
 	@Override
-	public boolean addProduct(DemandBean userDemandBean) {
+	public boolean addProduct(Demand userDemand) {
 
-		return addProduct(userDemandBean.getUserName(), userDemandBean.getProdId(), userDemandBean.getDemandQty());
+		return addProduct(userDemand.getUserName(), userDemand.getProdId(), userDemand.getDemandQty());
 	}
 
 	@Override
-	public List<DemandBean> haveDemanded(String prodId) {
+	public List<Demand> haveDemanded(String prodId) {
 		return demandDAO.haveDemanded(prodId);
 	}
 

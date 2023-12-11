@@ -30,7 +30,7 @@
 	}
 
 	ProductServiceImpl prodDao = new ProductServiceImpl();
-	List<ProductBean> products = new ArrayList<ProductBean>();
+	List<Product> products = new ArrayList<Product>();
 
 	String search = request.getParameter("search");
 	String type = request.getParameter("type");
@@ -63,7 +63,7 @@
 		<div class="row text-center">
 
 			<%
-			for (ProductBean product : products) {
+			for (Product product : products) {
 				int cartQty = new CartServiceImpl().getCartItemCount(userName, product.getProdId());
 			%>
 			<div class="col-sm-4" style='height: 350px;'>

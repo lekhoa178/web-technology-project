@@ -1,4 +1,4 @@
-package com.cnw.shoppingweb.controller;
+package com.cnw.shoppingweb.controller.security;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import com.cnw.shoppingweb.beans.UserBean;
+import com.cnw.shoppingweb.beans.User;
 import com.cnw.shoppingweb.service.impl.UserServiceImpl;
 
 /**
@@ -32,7 +32,7 @@ public class RegisterController extends HttpServlet {
 		String confirmPassword = request.getParameter("confirmPassword");
 		String status = "";
 		if (password != null && password.equals(confirmPassword)) {
-			UserBean user = new UserBean(userName, mobileNo, emailId, address, pinCode, password, "USER");
+			User user = new User(userName, mobileNo, emailId, address, pinCode, password, "USER");
 
 			UserServiceImpl dao = new UserServiceImpl();
 

@@ -1,9 +1,9 @@
 <%@ page import="com.cnw.shoppingweb.service.impl.CartServiceImpl" %>
-<%@ page import="com.cnw.shoppingweb.beans.CartBean" %>
+<%@ page import="com.cnw.shoppingweb.beans.Cart" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.cnw.shoppingweb.service.impl.ProductServiceImpl" %>
-<%@ page import="com.cnw.shoppingweb.beans.ProductBean" %>
+<%@ page import="com.cnw.shoppingweb.beans.Product" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 
@@ -101,16 +101,16 @@
 
 				<%
 				CartServiceImpl cart = new CartServiceImpl();
-				List<CartBean> cartItems = new ArrayList<CartBean>();
+				List<Cart> cartItems = new ArrayList<Cart>();
 				cartItems = cart.getAllCartItems(userName);
 				double totAmount = 0;
-				for (CartBean item : cartItems) {
+				for (Cart item : cartItems) {
 
 					String prodId = item.getProdId();
 
 					int prodQuantity = item.getQuantity();
 
-					ProductBean product = new ProductServiceImpl().getProductDetails(prodId);
+					Product product = new ProductServiceImpl().getProductDetails(prodId);
 
 					double currAmount = product.getProdPrice() * prodQuantity;
 

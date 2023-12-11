@@ -3,17 +3,17 @@ package com.cnw.shoppingweb.beans;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class DemandBean implements Serializable {
+public class Demand implements Serializable {
 
 	private String userName;
 	private String prodId;
 	private int demandQty;
 
-	public DemandBean() {
+	public Demand() {
 		super();
 	}
 
-	public DemandBean(String userName, String prodId, int demandQty) {
+	public Demand(String userName, String prodId, int demandQty) {
 		super();
 		this.userName = userName;
 		this.prodId = prodId;

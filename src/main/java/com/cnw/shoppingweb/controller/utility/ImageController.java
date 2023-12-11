@@ -1,4 +1,4 @@
-package com.cnw.shoppingweb.controller;
+package com.cnw.shoppingweb.controller.utility;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -16,10 +16,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import com.cnw.shoppingweb.service.impl.ProductServiceImpl;
 
  @WebServlet("/ShowImage")
-public class ShowImageController extends HttpServlet {
+public class ImageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ShowImageController() {
+	public ImageController() {
 		super();
 	}
 

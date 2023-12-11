@@ -1,6 +1,6 @@
 package com.cnw.shoppingweb.dao.impl;
 
-import com.cnw.shoppingweb.beans.CartBean;
+import com.cnw.shoppingweb.beans.Cart;
 import com.cnw.shoppingweb.dao.CartDAO;
 import com.cnw.shoppingweb.utility.DatabaseConnector;
 
@@ -18,7 +18,7 @@ public class CartDAOImpl implements CartDAO {
     }
 
     @Override
-    public List<CartBean> getAllCartItems(String userId) {
+    public List<Cart> getAllCartItems(String userId) {
         return cartDAO.getAllCartItems(userId);
     }
 
@@ -51,7 +51,7 @@ public class CartDAOImpl implements CartDAO {
         ResultSet rs = null;
 
         try {
-            ps = con.prepareStatement("select sum(quantity) from usercart where username=? and prodid=?");
+            ps = con.prepareStatement("select sum(quantity) from cart where username=? and prodid=?");
             ps.setString(1, userId);
             ps.setString(2, prodId);
             rs = ps.executeQuery();

@@ -1,6 +1,6 @@
 package com.cnw.shoppingweb.dao;
 
-import com.cnw.shoppingweb.beans.CartBean;
+import com.cnw.shoppingweb.beans.Cart;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public interface CartDAO {
 
     String updateProductToCart(String userId, String prodId, int prodQty);
 
-    List<CartBean> getAllCartItems(String userId);
+    List<Cart> getAllCartItems(String userId);
 
     int getCartCount(String userId);
 

@@ -3,7 +3,7 @@ package com.cnw.shoppingweb.beans;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class OrderBean implements Serializable {
+public class Order implements Serializable {
 
 	private String transactionId;
 	private String productId;
@@ -11,11 +11,11 @@ public class OrderBean implements Serializable {
 	private Double amount;
 	private int shipped;
 
-	public OrderBean() {
+	public Order() {
 		super();
 	}
 
-	public OrderBean(String transactionId, String productId, int quantity, Double amount) {
+	public Order(String transactionId, String productId, int quantity, Double amount) {
 		super();
 		this.transactionId = transactionId;
 		this.productId = productId;
@@ -24,7 +24,7 @@ public class OrderBean implements Serializable {
 		this.shipped = 0;
 	}
 
-	public OrderBean(String transactionId, String productId, int quantity, Double amount, int shipped) {
+	public Order(String transactionId, String productId, int quantity, Double amount, int shipped) {
 		super();
 		this.transactionId = transactionId;
 		this.productId = productId;

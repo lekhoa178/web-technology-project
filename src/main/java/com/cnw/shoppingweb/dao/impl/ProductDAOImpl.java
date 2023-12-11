@@ -1,7 +1,7 @@
 package com.cnw.shoppingweb.dao.impl;
 
-import com.cnw.shoppingweb.beans.DemandBean;
-import com.cnw.shoppingweb.beans.ProductBean;
+import com.cnw.shoppingweb.beans.Demand;
+import com.cnw.shoppingweb.beans.Product;
 import com.cnw.shoppingweb.dao.ProductDAO;
 import com.cnw.shoppingweb.service.impl.DemandServiceImpl;
 import com.cnw.shoppingweb.service.impl.ProductServiceImpl;
@@ -24,7 +24,7 @@ public class ProductDAOImpl implements ProductDAO {
         String status = null;
         String prodId = IdRefactor.generateId();
 
-        ProductBean product = new ProductBean(prodId, prodName, prodType, prodInfo, prodPrice, prodQuantity, prodImage);
+        Product product = new Product(prodId, prodName, prodType, prodInfo, prodPrice, prodQuantity, prodImage);
 
         status = addProduct(product);
 
@@ -32,7 +32,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public String addProduct(ProductBean product) {
+    public String addProduct(Product product) {
         String status = "Product Registration Failed!";
 
         if (product.getProdId() == null)
@@ -92,7 +92,7 @@ public class ProductDAOImpl implements ProductDAO {
             if (k > 0) {
                 status = "Product Removed Successfully!";
 
-                ps2 = con.prepareStatement("delete from usercart where prodid=?");
+                ps2 = con.prepareStatement("delete from cart where prodid=?");
 
                 ps2.setString(1, prodId);
 
@@ -113,7 +113,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public String updateProduct(ProductBean prevProduct, ProductBean updatedProduct) {
+    public String updateProduct(Product prevProduct, Product updatedProduct) {
         String status = "Product Updation Failed!";
 
         if (!prevProduct.getProdId().equals(updatedProduct.getProdId())) {
@@ -185,8 +185,8 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<ProductBean> getAllProducts() {
-        List<ProductBean> products = new ArrayList<ProductBean>();
+    public List<Product> getAllProducts() {
+        List<Product> products = new ArrayList<Product>();
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -200,7 +200,7 @@ public class ProductDAOImpl implements ProductDAO {
 
             while (rs.next()) {
 
-                ProductBean product = new ProductBean();
+                Product product = new Product();
 
                 product.setProdId(rs.getString(1));
                 product.setProdName(rs.getString(2));
@@ -226,8 +226,8 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<ProductBean> getAllProductsByType(String type) {
-        List<ProductBean> products = new ArrayList<ProductBean>();
+    public List<Product> getAllProductsByType(String type) {
+        List<Product> products = new ArrayList<Product>();
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -241,7 +241,7 @@ public class ProductDAOImpl implements ProductDAO {
 
             while (rs.next()) {
 
-                ProductBean product = new ProductBean();
+                Product product = new Product();
 
                 product.setProdId(rs.getString(1));
                 product.setProdName(rs.getString(2));
@@ -267,8 +267,8 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<ProductBean> searchAllProducts(String search) {
-        List<ProductBean> products = new ArrayList<ProductBean>();
+    public List<Product> searchAllProducts(String search) {
+        List<Product> products = new ArrayList<Product>();
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -286,7 +286,7 @@ public class ProductDAOImpl implements ProductDAO {
 
             while (rs.next()) {
 
-                ProductBean product = new ProductBean();
+                Product product = new Product();
 
                 product.setProdId(rs.getString(1));
                 product.setProdName(rs.getString(2));
@@ -343,8 +343,8 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public ProductBean getProductDetails(String prodId) {
-        ProductBean product = null;
+    public Product getProductDetails(String prodId) {
+        Product product = null;
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -358,7 +358,7 @@ public class ProductDAOImpl implements ProductDAO {
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                product = new ProductBean();
+                product = new Product();
                 product.setProdId(rs.getString(1));
                 product.setProdName(rs.getString(2));
                 product.setProdType(rs.getString(3));
@@ -380,7 +380,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public String updateProductWithoutImage(String prevProductId, ProductBean updatedProduct) {
+    public String updateProductWithoutImage(String prevProductId, Product updatedProduct) {
         String status = "Product Updation Failed!";
 
         if (!prevProductId.equals(updatedProduct.getProdId())) {
@@ -410,9 +410,9 @@ public class ProductDAOImpl implements ProductDAO {
             if ((k > 0) && (prevQuantity < updatedProduct.getProdQuantity())) {
                 status = "Product Updated Successfully!";
                 // System.out.println("updated!");
-                List<DemandBean> demandList = new DemandServiceImpl().haveDemanded(prevProductId);
+                List<Demand> demandList = new DemandServiceImpl().haveDemanded(prevProductId);
 
-                for (DemandBean demand : demandList) {
+                for (Demand demand : demandList) {
 
                     String userFName = new UserServiceImpl().getFName(demand.getUserName());
 //					try {

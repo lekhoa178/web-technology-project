@@ -3,7 +3,7 @@ package com.cnw.shoppingweb.service.impl;
 import java.io.InputStream;
 import java.util.List;
 
-import com.cnw.shoppingweb.beans.ProductBean;
+import com.cnw.shoppingweb.beans.Product;
 import com.cnw.shoppingweb.dao.ProductDAO;
 import com.cnw.shoppingweb.dao.impl.ProductDAOImpl;
 import com.cnw.shoppingweb.service.ProductService;
@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String addProduct(ProductBean product) {
+	public String addProduct(Product product) {
 		return productDAO.addProduct(product);
 	}
 
@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String updateProduct(ProductBean prevProduct, ProductBean updatedProduct) {
+	public String updateProduct(Product prevProduct, Product updatedProduct) {
 		return productDAO.updateProduct(prevProduct, updatedProduct);
 	}
 
@@ -38,17 +38,17 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductBean> getAllProducts() {
+	public List<Product> getAllProducts() {
 		return productDAO.getAllProducts();
 	}
 
 	@Override
-	public List<ProductBean> getAllProductsByType(String type) {
+	public List<Product> getAllProductsByType(String type) {
 		return productDAO.getAllProductsByType(type);
 	}
 
 	@Override
-	public List<ProductBean> searchAllProducts(String search) {
+	public List<Product> searchAllProducts(String search) {
 		return productDAO.searchAllProducts(search);
 	}
 
@@ -58,12 +58,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductBean getProductDetails(String prodId) {
+	public Product getProductDetails(String prodId) {
 		return productDAO.getProductDetails(prodId);
 	}
 
 	@Override
-	public String updateProductWithoutImage(String prevProductId, ProductBean updatedProduct) {
+	public String updateProductWithoutImage(String prevProductId, Product updatedProduct) {
 		return productDAO.updateProductWithoutImage(prevProductId, updatedProduct);
 	}
 

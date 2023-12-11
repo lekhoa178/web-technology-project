@@ -3,12 +3,12 @@ package com.cnw.shoppingweb.beans;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class UserBean implements Serializable {
+public class User implements Serializable {
 
-	public UserBean() {
+	public User() {
 	}
 
-	public UserBean(String userName, Long mobileNo, String emailId, String address, int pinCode, String password, String role) {
+	public User(String userName, Long mobileNo, String emailId, String address, int pinCode, String password, String role) {
 		super();
 		this.name = userName;
 		this.mobile = mobileNo;

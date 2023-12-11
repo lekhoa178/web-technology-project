@@ -1,6 +1,6 @@
 package com.cnw.shoppingweb.service;
 
-import com.cnw.shoppingweb.beans.UserBean;
+import com.cnw.shoppingweb.beans.User;
 
 public interface UserService {
 
@@ -12,13 +12,13 @@ public interface UserService {
 	public String registerUser(String userName, Long mobileNo, String emailId, String address, int pinCode,
 			String password);
 
-	public String registerUser(UserBean user);
+	public String registerUser(User user);
 
 	public boolean isRegistered(String emailId);
 
 	public String isValidCredential(String emailId, String password);
 
-	public UserBean getUserDetails(String emailId, String password);
+	public User getUserDetails(String emailId, String password);
 
 	public String getFName(String emailId);
 

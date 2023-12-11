@@ -1,6 +1,6 @@
 package com.cnw.shoppingweb.constants;
 
-public interface IUserConstants {
+public interface IUserConfigs {
 
 	public String TABLE_USER = "user";
 	public String COLUMN_NAME = "name";

@@ -1,6 +1,6 @@
 package com.cnw.shoppingweb.dao.impl;
 
-import com.cnw.shoppingweb.beans.DemandBean;
+import com.cnw.shoppingweb.beans.Demand;
 import com.cnw.shoppingweb.dao.DemandDAO;
 import com.cnw.shoppingweb.utility.DatabaseConnector;
 
@@ -25,7 +25,7 @@ public class DemandDAOImpl implements DemandDAO {
 
         try {
             //create the prepared statement with the query
-            ps = con.prepareStatement("select * from user_demand where username=? and prodid=?");
+            ps = con.prepareStatement("select * from demand where username=? and prodid=?");
 
             ps.setString(1, userId);
             ps.setString(2, prodId);
@@ -36,7 +36,7 @@ public class DemandDAOImpl implements DemandDAO {
 
                 flag = true;
             } else {
-                ps2 = con.prepareStatement("insert into  user_demand values(?,?,?)");
+                ps2 = con.prepareStatement("insert into  demand values(?,?,?)");
 
                 ps2.setString(1, userId);
 
@@ -74,7 +74,7 @@ public class DemandDAOImpl implements DemandDAO {
         ResultSet rs = null;
 
         try {
-            ps = con.prepareStatement("select * from user_demand where username=? and prodid=?");
+            ps = con.prepareStatement("select * from demand where username=? and prodid=?");
 
             ps.setString(1, userId);
             ps.setString(2, prodId);
@@ -86,7 +86,7 @@ public class DemandDAOImpl implements DemandDAO {
             if (rs.next()) {
 
                 // System.out.println("userId "+userId+"\nprodId: "+prodId);
-                ps2 = con.prepareStatement("delete from  user_demand where username=? and prodid=?");
+                ps2 = con.prepareStatement("delete from  demand where username=? and prodid=?");
 
                 ps2.setString(1, userId);
 
@@ -115,14 +115,14 @@ public class DemandDAOImpl implements DemandDAO {
     }
 
     @Override
-    public boolean addProduct(DemandBean userDemandBean) {
+    public boolean addProduct(Demand userDemand) {
 
-        return addProduct(userDemandBean.getUserName(), userDemandBean.getProdId(), userDemandBean.getDemandQty());
+        return addProduct(userDemand.getUserName(), userDemand.getProdId(), userDemand.getDemandQty());
     }
 
     @Override
-    public List<DemandBean> haveDemanded(String prodId) {
-        List<DemandBean> demandList = new ArrayList<DemandBean>();
+    public List<Demand> haveDemanded(String prodId) {
+        List<Demand> demandList = new ArrayList<Demand>();
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -130,13 +130,13 @@ public class DemandDAOImpl implements DemandDAO {
         ResultSet rs = null;
 
         try {
-            ps = con.prepareStatement("select * from user_demand where prodid=?");
+            ps = con.prepareStatement("select * from demand where prodid=?");
             ps.setString(1, prodId);
             rs = ps.executeQuery();
 
             while (rs.next()) {
 
-                DemandBean demand = new DemandBean(rs.getString("username"), rs.getString("prodid"),
+                Demand demand = new Demand(rs.getString("username"), rs.getString("prodid"),
                         rs.getInt("quantity"));
 
                 demandList.add(demand);

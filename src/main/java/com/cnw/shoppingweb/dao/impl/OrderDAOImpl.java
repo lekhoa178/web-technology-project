@@ -1,9 +1,9 @@
 package com.cnw.shoppingweb.dao.impl;
 
-import com.cnw.shoppingweb.beans.CartBean;
-import com.cnw.shoppingweb.beans.OrderBean;
+import com.cnw.shoppingweb.beans.Cart;
+import com.cnw.shoppingweb.beans.Order;
 import com.cnw.shoppingweb.beans.OrderDetails;
-import com.cnw.shoppingweb.beans.TransactionBean;
+import com.cnw.shoppingweb.beans.Transaction;
 import com.cnw.shoppingweb.dao.OrderDAO;
 import com.cnw.shoppingweb.service.impl.CartServiceImpl;
 import com.cnw.shoppingweb.service.impl.OrderServiceImpl;
@@ -22,13 +22,13 @@ public class OrderDAOImpl implements OrderDAO {
     public String paymentSuccess(String userName, double paidAmount) {
         String status = "Order Placement Failed!";
 
-        List<CartBean> cartItems = new ArrayList<CartBean>();
+        List<Cart> cartItems = new ArrayList<Cart>();
         cartItems = new CartServiceImpl().getAllCartItems(userName);
 
         if (cartItems.size() == 0)
             return status;
 
-        TransactionBean transaction = new TransactionBean(userName, paidAmount);
+        Transaction transaction = new Transaction(userName, paidAmount);
         boolean ordered = false;
 
         String transactionId = transaction.getTransactionId();
@@ -37,11 +37,11 @@ public class OrderDAOImpl implements OrderDAO {
         // "+transaction.getTransAmount()+" "+transaction.getUserName()+"
         // "+transaction.getTransDateTime());
 
-        for (CartBean item : cartItems) {
+        for (Cart item : cartItems) {
 
             double amount = new ProductServiceImpl().getProductPrice(item.getProdId()) * item.getQuantity();
 
-            OrderBean order = new OrderBean(transactionId, item.getProdId(), item.getQuantity(), amount);
+            Order order = new Order(transactionId, item.getProdId(), item.getQuantity(), amount);
 
             ordered = addOrder(order);
             if (!ordered)
@@ -70,7 +70,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public boolean addOrder(OrderBean order) {
+    public boolean addOrder(Order order) {
         boolean flag = false;
 
         Connection con = DatabaseConnector.provideConnection();
@@ -100,7 +100,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public boolean addTransaction(TransactionBean transaction) {
+    public boolean addTransaction(Transaction transaction) {
         boolean flag = false;
 
         Connection con = DatabaseConnector.provideConnection();
@@ -161,8 +161,8 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public List<OrderBean> getAllOrders() {
-        List<OrderBean> orderList = new ArrayList<OrderBean>();
+    public List<Order> getAllOrders() {
+        List<Order> orderList = new ArrayList<Order>();
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -177,7 +177,7 @@ public class OrderDAOImpl implements OrderDAO {
 
             while (rs.next()) {
 
-                OrderBean order = new OrderBean(rs.getString("orderid"), rs.getString("prodid"), rs.getInt("quantity"),
+                Order order = new Order(rs.getString("orderid"), rs.getString("prodid"), rs.getInt("quantity"),
                         rs.getDouble("amount"), rs.getInt("shipped"));
 
                 orderList.add(order);
@@ -193,8 +193,8 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public List<OrderBean> getOrdersByUserId(String emailId) {
-        List<OrderBean> orderList = new ArrayList<OrderBean>();
+    public List<Order> getOrdersByUserId(String emailId) {
+        List<Order> orderList = new ArrayList<Order>();
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -210,7 +210,7 @@ public class OrderDAOImpl implements OrderDAO {
 
             while (rs.next()) {
 
-                OrderBean order = new OrderBean(rs.getString("t.transid"), rs.getString("t.prodid"),
+                Order order = new Order(rs.getString("t.transid"), rs.getString("t.prodid"),
                         rs.getInt("quantity"), rs.getDouble("t.amount"), rs.getInt("shipped"));
 
                 orderList.add(order);

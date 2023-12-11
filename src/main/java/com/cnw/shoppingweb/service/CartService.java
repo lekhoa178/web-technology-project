@@ -2,7 +2,7 @@ package com.cnw.shoppingweb.service;
 
 import java.util.List;
 
-import com.cnw.shoppingweb.beans.CartBean;
+import com.cnw.shoppingweb.beans.Cart;
 
 public interface CartService {
 
@@ -10,7 +10,7 @@ public interface CartService {
 
 	public String updateProductToCart(String userId, String prodId, int prodQty);
 
-	public List<CartBean> getAllCartItems(String userId);
+	public List<Cart> getAllCartItems(String userId);
 
 	public int getCartCount(String userId);
 

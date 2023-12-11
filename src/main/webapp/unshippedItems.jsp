@@ -60,10 +60,10 @@
 					<%
 					OrderServiceImpl orderdao = new OrderServiceImpl();
 
-					List<OrderBean> orders = new ArrayList<OrderBean>();
+					List<Order> orders = new ArrayList<Order>();
 					orders = orderdao.getAllOrders();
 					int count = 0;
-					for (OrderBean order : orders) {
+					for (Order order : orders) {
 						String transId = order.getTransactionId();
 						String prodId = order.getProductId();
 						int quantity = order.getQuantity();
@@ -76,7 +76,7 @@
 
 					<tr>
 						<td><%=transId%></td>
-						<td><a href="./updateProduct.jsp?prodid=<%=prodId%>"><%=prodId%></a></td>
+						<td><a href="updateProduct.jsp?prodid=<%=prodId%>"><%=prodId%></a></td>
 						<td><%=userId%></td>
 						<td><%=userAddr%></td>
 						<td><%=quantity%></td>

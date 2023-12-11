@@ -1,5 +1,5 @@
 <%@ page import="com.cnw.shoppingweb.service.impl.ProductServiceImpl" %>
-<%@ page import="com.cnw.shoppingweb.beans.ProductBean" %>
+<%@ page import="com.cnw.shoppingweb.beans.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.cnw.shoppingweb.service.impl.OrderServiceImpl" %>
@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/changes.css">
+<link rel="stylesheet" href="../../resources/css/changes.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -68,16 +68,16 @@
 
 					<%
 					ProductServiceImpl productDao = new ProductServiceImpl();
-					List<ProductBean> products = new ArrayList<ProductBean>();
+					List<Product> products = new ArrayList<Product>();
 					products = productDao.getAllProducts();
-					for (ProductBean product : products) {
+					for (Product product : products) {
 					%>
 
 					<tr>
 						<td><img src="./ShowImage?pid=<%=product.getProdId()%>"
 							style="width: 50px; height: 50px;"></td>
 						<td><a
-							href="./updateProduct.jsp?prodid=<%=product.getProdId()%>"><%=product.getProdId()%></a></td>
+							href="updateProduct.jsp?prodid=<%=product.getProdId()%>"><%=product.getProdId()%></a></td>
 						<%
 						String name = product.getProdName();
 						name = name.substring(0, Math.min(name.length(), 25)) + "..";

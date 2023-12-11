@@ -1,4 +1,4 @@
-package com.cnw.shoppingweb.controller;
+package com.cnw.shoppingweb.controller.cart;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,8 +11,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import com.cnw.shoppingweb.beans.DemandBean;
-import com.cnw.shoppingweb.beans.ProductBean;
+import com.cnw.shoppingweb.beans.Demand;
+import com.cnw.shoppingweb.beans.Product;
 import com.cnw.shoppingweb.service.impl.CartServiceImpl;
 import com.cnw.shoppingweb.service.impl.DemandServiceImpl;
 import com.cnw.shoppingweb.service.impl.ProductServiceImpl;
@@ -50,7 +50,7 @@ public class AddToCartController extends HttpServlet {
 
         ProductServiceImpl productDao = new ProductServiceImpl();
 
-        ProductBean product = productDao.getProductDetails(prodId);
+        Product product = productDao.getProductDetails(prodId);
 
         int availableQty = product.getProdQuantity();
 
@@ -83,7 +83,7 @@ public class AddToCartController extends HttpServlet {
                         + " are available in the shop! So we are adding only " + availableQty
                         + " products into Your Cart" + "";
             }
-            DemandBean demandBean = new DemandBean(userName, product.getProdId(), pQty - availableQty);
+            Demand demandBean = new Demand(userName, product.getProdId(), pQty - availableQty);
 
             DemandServiceImpl demand = new DemandServiceImpl();
 

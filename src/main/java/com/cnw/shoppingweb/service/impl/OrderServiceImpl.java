@@ -2,9 +2,9 @@ package com.cnw.shoppingweb.service.impl;
 
 import java.util.List;
 
-import com.cnw.shoppingweb.beans.OrderBean;
+import com.cnw.shoppingweb.beans.Order;
 import com.cnw.shoppingweb.beans.OrderDetails;
-import com.cnw.shoppingweb.beans.TransactionBean;
+import com.cnw.shoppingweb.beans.Transaction;
 import com.cnw.shoppingweb.dao.OrderDAO;
 import com.cnw.shoppingweb.dao.impl.OrderDAOImpl;
 import com.cnw.shoppingweb.service.OrderService;
@@ -18,12 +18,12 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public boolean addOrder(OrderBean order) {
+	public boolean addOrder(Order order) {
 		return orderDAO.addOrder(order);
 	}
 
 	@Override
-	public boolean addTransaction(TransactionBean transaction) {
+	public boolean addTransaction(Transaction transaction) {
 		return orderDAO.addTransaction(transaction);
 	}
 
@@ -33,12 +33,12 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<OrderBean> getAllOrders() {
+	public List<Order> getAllOrders() {
 		return orderDAO.getAllOrders();
 	}
 
 	@Override
-	public List<OrderBean> getOrdersByUserId(String emailId) {
+	public List<Order> getOrdersByUserId(String emailId) {
 		return orderDAO.getOrdersByUserId(emailId);
 	}
 

@@ -1,4 +1,4 @@
-package com.cnw.shoppingweb.controller;
+package com.cnw.shoppingweb.controller.product;
 
 import java.io.IOException;
 import java.io.InputStream;

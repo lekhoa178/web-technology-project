@@ -1,7 +1,7 @@
 package com.cnw.shoppingweb.dao.impl;
 
-import com.cnw.shoppingweb.beans.UserBean;
-import com.cnw.shoppingweb.constants.IUserConstants;
+import com.cnw.shoppingweb.beans.User;
+import com.cnw.shoppingweb.constants.IUserConfigs;
 import com.cnw.shoppingweb.dao.UserDAO;
 import com.cnw.shoppingweb.utility.DatabaseConnector;
 
@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class  UserDAOImpl implements UserDAO {
 
     @Override
-    public String registerUser(UserBean user) {
+    public String registerUser(User user) {
 
         String status = "User Registration Failed!";
 
@@ -31,7 +31,7 @@ public class  UserDAOImpl implements UserDAO {
 
         try {
 
-            ps = conn.prepareStatement("insert into " + IUserConstants.TABLE_USER + " values(?,?,?,?,?,?)");
+            ps = conn.prepareStatement("insert into " + IUserConfigs.TABLE_USER + " values(?,?,?,?,?,?)");
 
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getName());
@@ -88,8 +88,8 @@ public class  UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public UserBean getUserDetails(String emailId) {
-        UserBean user = null;
+    public User getUserDetails(String emailId) {
+        User user = null;
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -102,7 +102,7 @@ public class  UserDAOImpl implements UserDAO {
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                user = new UserBean();
+                user = new User();
                 user.setName(rs.getString("name"));
                 user.setMobile(rs.getLong("mobile"));
                 user.setEmail(rs.getString("email"));
@@ -125,9 +125,9 @@ public class  UserDAOImpl implements UserDAO {
         return user;    }
 
     @Override
-    public UserBean getUserDetails(String emailId, String password) {
+    public User getUserDetails(String emailId, String password) {
 
-        UserBean user = null;
+        User user = null;
 
         Connection con = DatabaseConnector.provideConnection();
 
@@ -141,7 +141,7 @@ public class  UserDAOImpl implements UserDAO {
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                user = new UserBean();
+                user = new User();
                 user.setName(rs.getString("name"));
                 user.setMobile(rs.getLong("mobile"));
                 user.setEmail(rs.getString("email"));

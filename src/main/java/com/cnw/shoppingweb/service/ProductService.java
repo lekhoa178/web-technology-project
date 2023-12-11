@@ -3,32 +3,32 @@ package com.cnw.shoppingweb.service;
 import java.io.InputStream;
 import java.util.List;
 
-import com.cnw.shoppingweb.beans.ProductBean;
+import com.cnw.shoppingweb.beans.Product;
 
 public interface ProductService {
 
 	public String addProduct(String prodName, String prodType, String prodInfo, double prodPrice, int prodQuantity,
 			InputStream prodImage);
 
-	public String addProduct(ProductBean product);
+	public String addProduct(Product product);
 
 	public String removeProduct(String prodId);
 
-	public String updateProduct(ProductBean prevProduct, ProductBean updatedProduct);
+	public String updateProduct(Product prevProduct, Product updatedProduct);
 
 	public String updateProductPrice(String prodId, double updatedPrice);
 
-	public List<ProductBean> getAllProducts();
+	public List<Product> getAllProducts();
 
-	public List<ProductBean> getAllProductsByType(String type);
+	public List<Product> getAllProductsByType(String type);
 
-	public List<ProductBean> searchAllProducts(String search);
+	public List<Product> searchAllProducts(String search);
 
 	public byte[] getImage(String prodId);
 
-	public ProductBean getProductDetails(String prodId);
+	public Product getProductDetails(String prodId);
 
-	public String updateProductWithoutImage(String prevProductId, ProductBean updatedProduct);
+	public String updateProductWithoutImage(String prevProductId, Product updatedProduct);
 
 	public double getProductPrice(String prodId);
 

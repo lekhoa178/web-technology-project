@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import com.cnw.shoppingweb.utility.IdRefactor;
 
 @SuppressWarnings("serial")
-public class TransactionBean implements Serializable {
+public class Transaction implements Serializable {
 
 	private String transactionId;
 
@@ -17,7 +17,7 @@ public class TransactionBean implements Serializable {
 
 	private double transAmount;
 
-	public TransactionBean() {
+	public Transaction() {
 		super();
 		this.transactionId = IdRefactor.generateTransId();
 
@@ -30,7 +30,7 @@ public class TransactionBean implements Serializable {
 		this.transDateTime = timestamp;
 	}
 
-	public TransactionBean(String userName, double transAmount) {
+	public Transaction(String userName, double transAmount) {
 		super();
 		this.userName = userName;
 		this.transAmount = transAmount;
@@ -47,7 +47,7 @@ public class TransactionBean implements Serializable {
 
 	}
 
-	public TransactionBean(String transactionId, String userName, double transAmount) {
+	public Transaction(String transactionId, String userName, double transAmount) {
 		super();
 		this.transactionId = transactionId;
 		this.userName = userName;
@@ -62,7 +62,7 @@ public class TransactionBean implements Serializable {
 		this.transDateTime = timestamp;
 	}
 
-	public TransactionBean(String userName, Timestamp transDateTime, double transAmount) {
+	public Transaction(String userName, Timestamp transDateTime, double transAmount) {
 		super();
 		this.userName = userName;
 		this.transDateTime = transDateTime;
@@ -70,7 +70,7 @@ public class TransactionBean implements Serializable {
 		this.transAmount = transAmount;
 	}
 
-	public TransactionBean(String transactionId, String userName, Timestamp transDateTime, double transAmount) {
+	public Transaction(String transactionId, String userName, Timestamp transDateTime, double transAmount) {
 		super();
 		this.transactionId = transactionId;
 		this.userName = userName;

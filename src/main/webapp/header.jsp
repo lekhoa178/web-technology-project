@@ -70,8 +70,11 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
       </form>
 
-      <% int notf = new CartServiceImpl().getCartCount((String)
-      session.getAttribute("username")); if (notf == 0) { %>
+      <%
+      String userType = (String)
+                session.getAttribute("usertype");
+      int notf = new CartServiceImpl().getCartCount((String)
+      session.getAttribute("username")); if (notf == 0 && userType != null && userType.equals("USER")) { %>
       <a href="cartDetails.jsp">
         <span class="glyphicon glyphicon-shopping-cart">Giỏ hàng</span>
       </a>
@@ -96,8 +99,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     </div>
     <!-- Company Header Ending -->
 
-    <% /* Checking the user credentials */ String userType = (String)
-    session.getAttribute("usertype"); if (userType == null) { //LOGGED OUT %>
+    <% /* Checking the user credentials */ if (userType == null) { //LOGGED OUT %>
 
     <!-- Starting Navigation Bar -->
     <nav class="navbar navbar-fixed-top">
@@ -173,7 +175,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
               </ul>
             </li>
 
-            <li><a href="userProfile.jsp">Hồ sơ</a></li>
+            <li><a href="profile.jsp">Hồ sơ</a></li>
             <li><a href="./LogoutSrv">Đăng xuất</a></li>
           </ul>
         </div>

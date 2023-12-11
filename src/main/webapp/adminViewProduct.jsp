@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/changes.css">
+<link rel="stylesheet" href="../../resources/css/changes.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -36,7 +36,7 @@
 
 	}
 	ProductServiceImpl prodDao = new ProductServiceImpl();
-	List<ProductBean> products = new ArrayList<ProductBean>();
+	List<Product> products = new ArrayList<Product>();
 
 	String search = request.getParameter("search");
 	String type = request.getParameter("type");
@@ -68,7 +68,7 @@
 		<div class="row text-center">
 
 			<%
-			for (ProductBean product : products) {
+			for (Product product : products) {
 			%>
 			<div class="col-sm-4" style='height: 350px;'>
 				<div class="thumbnail" style="height: 340px;box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 5px;">

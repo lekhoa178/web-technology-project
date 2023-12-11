@@ -1,4 +1,4 @@
-package com.cnw.shoppingweb.controller;
+package com.cnw.shoppingweb.controller.product;
 
 import java.io.IOException;
 
@@ -10,17 +10,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import com.cnw.shoppingweb.beans.ProductBean;
 import com.cnw.shoppingweb.service.impl.ProductServiceImpl;
 
-/**
- * Servlet implementation class UpdateProductSrv
- */
-@WebServlet("/UpdateProductSrv")
-public class UpdateProductController extends HttpServlet {
+@WebServlet("/RemoveProductSrv")
+public class RemoveProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public UpdateProductController() {
+	public RemoveProductController() {
 		super();
 
 	}
@@ -36,37 +32,24 @@ public class UpdateProductController extends HttpServlet {
 		if (userType == null || !userType.equals("ADMIN")) {
 
 			response.sendRedirect("login.jsp?message=Access Denied, Login As Admin!!");
-			return;
 
-		} else if (userName == null || password == null) {
-
-			response.sendRedirect("login.jsp?message=Session Expired, Login Again!!");
-			return;
 		}
 
-		// Login success
+		else if (userName == null || password == null) {
 
-		String prodId = request.getParameter("pid");
-		String prodName = request.getParameter("name");
-		String prodType = request.getParameter("type");
-		String prodInfo = request.getParameter("info");
-		Double prodPrice = Double.parseDouble(request.getParameter("price"));
-		Integer prodQuantity = Integer.parseInt(request.getParameter("quantity"));
+			response.sendRedirect("login.jsp?message=Session Expired, Login Again!!");
+		}
 
-		ProductBean product = new ProductBean();
-		product.setProdId(prodId);
-		product.setProdName(prodName);
-		product.setProdInfo(prodInfo);
-		product.setProdPrice(prodPrice);
-		product.setProdQuantity(prodQuantity);
-		product.setProdType(prodType);
+		// login checked
 
-		ProductServiceImpl dao = new ProductServiceImpl();
+		String prodId = request.getParameter("prodid");
 
-		String status = dao.updateProductWithoutImage(prodId, product);
+		ProductServiceImpl product = new ProductServiceImpl();
 
-		RequestDispatcher rd = request
-				.getRequestDispatcher("updateProduct.jsp?prodid=" + prodId + "&message=" + status);
+		String status = product.removeProduct(prodId);
+
+		RequestDispatcher rd = request.getRequestDispatcher("removeProduct.jsp?message=" + status);
+
 		rd.forward(request, response);
 
 	}

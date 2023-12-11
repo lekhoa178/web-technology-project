@@ -46,9 +46,9 @@
 	}
 
 	UserService dao = new UserServiceImpl();
-	UserBean user = dao.getUserDetails(userName, password);
+	User user = dao.getUserDetails(userName, password);
 	if (user == null)
-		user = new UserBean("Test User", 98765498765L, "test@gmail.com", "ABC colony, Patna, bihar", 87659, "lksdjf", "User");
+		user = new User("Test User", 98765498765L, "test@gmail.com", "ABC colony, Patna, bihar", 87659, "lksdjf", "User");
 	%>
 
 

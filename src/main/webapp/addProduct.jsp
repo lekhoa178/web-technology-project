@@ -12,8 +12,8 @@ pageEncoding="UTF-8"%>
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/changes.css" />
-    <link rel="stylesheet" href="css/FormProduct.css" />
+    <link rel="stylesheet" href="../../resources/css/changes.css" />
+    <link rel="stylesheet" href="../../resources/css/FormProduct.css" />
   </head>
   <body style="background-color: #f5f5f5">
     <% /* Checking the user credentials */ String userType =

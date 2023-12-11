@@ -1,4 +1,4 @@
-package com.cnw.shoppingweb.controller;
+package com.cnw.shoppingweb.controller.security;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import com.cnw.shoppingweb.beans.UserBean;
+import com.cnw.shoppingweb.beans.User;
 import com.cnw.shoppingweb.service.impl.UserServiceImpl;
 
 /**
@@ -40,8 +40,8 @@ public class LoginController extends HttpServlet {
 		if (status.equalsIgnoreCase("valid")) {
 			// valid
 
-			UserBean userBean = udao.getUserDetails(userName, password);
-			String userType = userBean.getRole();
+			User user = udao.getUserDetails(userName, password);
+			String userType = user.getRole();
 
 			RequestDispatcher rd = null;
 
@@ -56,7 +56,7 @@ public class LoginController extends HttpServlet {
 			else
 			{
 				rd = request.getRequestDispatcher("userHome.jsp");
-				session.setAttribute("userdata", userBean);
+				session.setAttribute("userdata", user);
 			}
 
 			rd.forward(request, response);
