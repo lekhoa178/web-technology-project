@@ -36,11 +36,12 @@ public class LoginController extends HttpServlet {
 		UserServiceImpl udao = new UserServiceImpl();
 
 		status = udao.isValidCredential(userName, password);
-		UserBean userBean = udao.getUserDetails(userName, password);
-		String userType = userBean.getRole();
 
 		if (status.equalsIgnoreCase("valid")) {
 			// valid
+
+			UserBean userBean = udao.getUserDetails(userName, password);
+			String userType = userBean.getRole();
 
 			RequestDispatcher rd = null;
 
